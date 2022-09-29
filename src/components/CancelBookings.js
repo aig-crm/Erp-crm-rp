@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Api from "./Api";
-import PageTemplate from "./pageTemplate";
-import { PDFExport } from '@progress/kendo-react-pdf';
 import { NavBtn, NavLink } from "./NavbarElements";
 
 function CancelBookings(props) {

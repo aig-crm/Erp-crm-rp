@@ -7,6 +7,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Grid } from '@material-ui/core';
 import pic1 from '../assets/pic1.jpg';
 import pic2 from '../assets/pic2.png';
+import { NavBtn, NavLink } from "./NavbarElements";
 
 function ReceiptTable() {
 
@@ -114,6 +115,7 @@ function ReceiptTable() {
                                     <th className="table">Clearing Date</th>
                                     <th className="table">Receipt No.</th>
                                     <th className="table">Status</th>
+                                    <th className="table">Approve receipt</th>
                                 </tr>
                             </thead>
                             <tbody className="table">
@@ -148,6 +150,12 @@ function ReceiptTable() {
                                         <td>{res.clearing_date}</td>
                                         <Link to='/receiptEdit' state={{ date: (res.date), payment_mode: (res.payment_mode), bank_name: (res.bank_name), rwgst: (res.rwgst), rwogst: (res.rwogst), rgst: (res.rgst), receipt_no: (res.receipt_no), unit_no: (unit_no), tower: (tower) }}>{res.receipt_no}</Link>
                                         <td style={{ backgroundColor: "#c61a09" }}>{res.status}</td>
+                                        <td>
+                                            <NavBtn >
+                                                <NavLink to='/approveReceipt' state={{ tower: (tower), unit_no: (unit_no), bank_name: (res.bank_name), bank_branch: (res.bank_branch), ref_no: (res.ref_no), rwgst: (res.rwgst), rwogst: (Math.round((res.rwgst) * 100 / 105)), rgst: (Math.round(res.rwgst - (res.rwgst) * 100 / 105)), date: (res.date), receipt_no: (res.receipt_no) }}><b>
+                                                    Approve</b>
+                                                </NavLink>
+                                            </NavBtn></td>
                                     </tr>)
                                 }
                                 )}
@@ -194,6 +202,7 @@ function ReceiptTable() {
                                     <th className="table">Clearing Date</th>
                                     <th className="table">Receipt No.</th>
                                     <th className="table">Status</th>
+                                    <th className="table">Approve receipt</th>
                                 </tr>
                             </thead>
                             <tbody className="table">
@@ -227,6 +236,12 @@ function ReceiptTable() {
                                         <td>{res.clearing_date}</td>
                                         <Link to='/receiptEdit' state={{ date: (res.date), payment_mode: (res.payment_mode), bank_name: (res.bank_name), rwgst: (res.rwgst), rwogst: (res.rwogst), rgst: (res.rgst), receipt_no: (res.receipt_no), unit_no: (unit_no), tower: (tower) }}>{res.receipt_no}</Link>
                                         <td style={{ backgroundColor: "#c61a09" }}>{res.status}</td>
+                                        <td>
+                                            <NavBtn >
+                                                <NavLink to='/approveReceipt' state={{ tower: (tower), unit_no: (unit_no), bank_name: (res.bank_name), bank_branch: (res.bank_branch), ref_no: (res.ref_no), rwgst: (res.rwgst), rwogst: (Math.round((res.rwgst) * 100 / 105)), rgst: (Math.round(res.rwgst - (res.rwgst) * 100 / 105)), date: (res.date), receipt_no: (res.receipt_no) }}><b>
+                                                    Approve</b>
+                                                </NavLink>
+                                            </NavBtn></td>
                                     </tr>
                                 )}
                             </tbody>
