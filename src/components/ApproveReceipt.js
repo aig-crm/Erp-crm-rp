@@ -1,3 +1,4 @@
+import { ToggleButton } from "@material-ui/lab";
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import Api from "./Api";
@@ -17,14 +18,13 @@ function ApproveReceipt() {
     const { rgst } = location.state;
     const { receipt_no } = location.state;
 
-    const [status, setStatus] = useState("");
     const [clearing_bank, setClearing_bank] = useState("");
     const [clearing_date, setClearing_date] = useState("");
 
     async function register() {
         alert("Form submitted for receipt no - " + (receipt_no));
         await Api.put("/customer_account/" + "'" + (receipt_no) + "'", {
-            status: status,
+            status: 1,
             clearing_bank: clearing_bank,
             clearing_date: clearing_date,
         }).then((response) => {
@@ -62,14 +62,6 @@ function ApproveReceipt() {
                             if (e.target.value === '' || e.target.value === null) {
                                 alert("Form has errors for receipt - " + (receipt_no));
                             } else { setClearing_date(e.target.value) }
-                        }} required />
-                    <label className="Postform"><b><u>Status</u></b></label>
-                    <input
-                        type="text"
-                        onChange={(e) => {
-                            if (e.target.value === '' || e.target.value === null) {
-                                alert("Form has errors for receipt - " + (receipt_no));
-                            } else { setStatus(e.target.value) }
                         }} required />
                 </div>
                 <br />
