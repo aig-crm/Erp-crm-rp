@@ -23,9 +23,10 @@ import ReceiptEdit from './ReceiptEdit';
 import CancelBookings from './CancelBookings';
 import CanceledBookings from './CanceledBookings';
 import DeleteBooking from './DeleteBooking';
-import ApproveReceipt from './ApproveReceipt';
 import OtherCharges from './OtherCharges';
 import EditOtherCharges from './EditOtherCharges';
+import Brokers from './Brokers';
+import BrokerReport from './BrokerReport';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route exact path='/' element={<Home />} >
           <Route exact path='/reports' element={<Reports />} />
           <Route exact path='/bookings' element={<Table />} />
+          <Route exact path='/brokers' element={<Brokers />} />
         </Route>
         <Route exact path='/D' element={<D value={'D'} />} >
           <Route exact path='/D/bookingform/' element={<PostForm value={'D'} />} />
@@ -77,9 +79,9 @@ function App() {
         <Route exact path='/addReceipt' element={<ReceiptForm />} />
         <Route exact path='/receiptEdit' element={<ReceiptEdit />} />
         <Route exact path='/deleteBooking' element={<DeleteBooking />} />
-        <Route exact path='/approveReceipt' element={<ApproveReceipt />} />
         <Route exact path='/otherCharges' element={<OtherCharges />} />
         <Route exact path='/editOtherCharges' element={<EditOtherCharges />} />
+        <Route exact path='/brokerReport' element={<BrokerReport />} />
       </Routes>
     </div>
   );
