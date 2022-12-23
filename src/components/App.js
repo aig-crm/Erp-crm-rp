@@ -23,8 +23,6 @@ import ReceiptEdit from './ReceiptEdit';
 import CancelBookings from './CancelBookings';
 import CanceledBookings from './CanceledBookings';
 import DeleteBooking from './DeleteBooking';
-import OtherCharges from './OtherCharges';
-import EditOtherCharges from './EditOtherCharges';
 import Brokers from './Brokers';
 import BrokerReport from './BrokerReport';
 import BrokerAdd from './BrokerAdd';
@@ -33,6 +31,7 @@ import BrokerEdit from './BrokerEdit';
 import Welcome from './Welcome';
 import UploadFile from './UploadFile';
 import ApproveReceipt from './ApproveReceipt';
+import SeeFile from './SeeFile';
 
 
 function App() {
@@ -86,8 +85,6 @@ function App() {
         <Route exact path='/addReceipt' element={<ReceiptForm />} />
         <Route exact path='/receiptEdit' element={<ReceiptEdit />} />
         <Route exact path='/deleteBooking' element={<DeleteBooking />} />
-        <Route exact path='/otherCharges' element={<OtherCharges />} />
-        <Route exact path='/editOtherCharges' element={<EditOtherCharges />} />
         <Route exact path='/brokerReport' element={<BrokerReport />} />
         <Route exact path='/brokerAdd' element={<BrokerAdd />} />
         <Route exact path='/brokerDetails' element={<BrokerDetails />} />
@@ -95,6 +92,7 @@ function App() {
         <Route exact path='/welcome' element={<Welcome />} />
         <Route exact path='/uploadFile' element={<UploadFile />} />
         <Route exact path='/approveReceipt' element={<ApproveReceipt />} />
+        <Route exact path='/seeFile' element={<SeeFile />} />
       </Routes>
     </div>
   );
