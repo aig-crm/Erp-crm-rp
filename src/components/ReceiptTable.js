@@ -120,7 +120,7 @@ function ReceiptTable() {
                             </thead>
                             <tbody className="table">
                                 {currentTableData.map((res) => {
-                                    return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
+                                    return (<tr className="table2" style={{ backgroundColor: "#FFFDD0" }}>
                                         <td>{res.date}</td>
                                         <td>{res.payment_mode}</td>
                                         <td>{res.bank_name}</td>
@@ -137,7 +137,7 @@ function ReceiptTable() {
                                 }
                                 )}
                                 {currentTableData2.map((res) => {
-                                    return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
+                                    return (<tr className="table2" style={{ backgroundColor: "#FFFDD0" }}>
                                         <td>{res.date}</td>
                                         <td>{res.payment_mode}</td>
                                         <td>{res.bank_name}</td>
