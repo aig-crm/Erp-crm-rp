@@ -16,9 +16,7 @@ const Navbar = () => {
 				<Grid item xs={12} sm={1}>
 					<img className='img' src={logo} alt="logo" />
 				</Grid>
-				<Grid item xs={12} sm={2}>
-					<h3 className='postform'><b>AIGIN Royal</b></h3>
-				</Grid>
+					<h3 className='postform'><b>AIGIN Royal Park</b></h3>
 			</Grid>
 
 			<Nav>
@@ -27,12 +25,12 @@ const Navbar = () => {
 					<NavLink to='/' activeStyle><b>
 						Home</b>
 					</NavLink>
-					<NavLink to='/D' activeStyle><b>
+					{/* <NavLink to='/D' activeStyle><b>
 						D Tower</b>
 					</NavLink>
 					<NavLink to='/C' activeStyle><b>
 						C Tower</b>
-					</NavLink>
+					</NavLink> */}
 					<NavLink to='/B' activeStyle><b>
 						B Tower</b>
 					</NavLink>

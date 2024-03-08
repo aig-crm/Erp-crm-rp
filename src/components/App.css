@@ -61,7 +61,16 @@ body {
 .Postform {
   align-items: center;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  padding: 10px;
+  padding: 20px;
+  color: black;
+  font-size: 20px;
+}
+
+.Postform2 {
+  align-items: center;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  margin-left: 20px;
+  margin-right: 20px;
   color: black;
   font-size: 20px;
 }
@@ -112,6 +121,7 @@ body {
 
 .img {
   float: right;
+  font-size: 15px;
 }
 
 .Demand {

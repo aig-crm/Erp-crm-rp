@@ -7,7 +7,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Grid } from '@material-ui/core';
 import pic1 from '../assets/pic1.jpg';
 import pic2 from '../assets/pic2.png';
-import { NavBtn, NavLink } from "./NavbarElements";
 
 function ReceiptTable() {
 
@@ -103,19 +102,18 @@ function ReceiptTable() {
                         <table className="table-bordered text-black">
                             <thead>
                                 <tr style={{ backgroundColor: "#0078AA" }}>
-                                    <th className="table">Date</th>
-                                    <th className="table">Payment Mode</th>
-                                    <th className="table">Bank Name</th>
-                                    <th className="table">Bank Branch</th>
-                                    <th className="table">Instrument No.</th>
-                                    <th className="table">Amt. Received with GST</th>
-                                    <th className="table">Amt. Received without GST</th>
-                                    <th className="table">Received GST</th>
-                                    <th className="table">Clearing Bank</th>
-                                    <th className="table">Clearing Date</th>
-                                    <th className="table">Receipt No.</th>
-                                    <th className="table">Status</th>
-                                    <th className="table">Approve receipt</th>
+                                    <th className="Postform">Date</th>
+                                    <th className="Postform">Payment Mode</th>
+                                    <th className="Postform">Bank Name</th>
+                                    <th className="Postform">Bank Branch</th>
+                                    <th className="Postform">Instrument No.</th>
+                                    <th className="Postform">Amt. Received with GST</th>
+                                    <th className="Postform">Amt. Received without GST</th>
+                                    <th className="Postform">Received GST</th>
+                                    <th className="Postform">Clearing Bank</th>
+                                    <th className="Postform">Clearing Date</th>
+                                    <th className="Postform">Receipt No.</th>
+                                    <th className="Postform">Status</th>
                                 </tr>
                             </thead>
                             <tbody className="table">
@@ -127,8 +125,8 @@ function ReceiptTable() {
                                         <td>{res.bank_branch}</td>
                                         <td>{res.ref_no}</td>
                                         <td>{res.rwgst}</td>
-                                        <td>{Math.round((res.rwgst) * 100 / 105)}</td>
-                                        <td>{Math.round(res.rwgst - (res.rwgst) * 100 / 105)}</td>
+                                        <td>{res.rwogst}</td>
+                                        <td>{res.rgst}</td>
                                         <td>{res.clearing_bank}</td>
                                         <td>{res.clearing_date}</td>
                                         <td>{res.receipt_no}</td>
@@ -144,18 +142,12 @@ function ReceiptTable() {
                                         <td>{res.bank_branch}</td>
                                         <td>{res.ref_no}</td>
                                         <td>{res.rwgst}</td>
-                                        <td>{Math.round((res.rwgst) * 100 / 105)}</td>
-                                        <td>{Math.round(res.rwgst - (res.rwgst) * 100 / 105)}</td>
+                                        <td>{res.rwogst}</td>
+                                        <td>{res.rgst}</td>
                                         <td>{res.clearing_bank}</td>
                                         <td>{res.clearing_date}</td>
                                         <Link to='/receiptEdit' state={{ date: (res.date), payment_mode: (res.payment_mode), bank_name: (res.bank_name), rwgst: (res.rwgst), rwogst: (res.rwogst), rgst: (res.rgst), receipt_no: (res.receipt_no), unit_no: (unit_no), tower: (tower) }}>{res.receipt_no}</Link>
                                         <td style={{ backgroundColor: "#c61a09" }}>{res.status}</td>
-                                        <td>
-                                            <NavBtn >
-                                                <NavLink to='/approveReceipt' state={{ tower: (tower), unit_no: (unit_no), bank_name: (res.bank_name), bank_branch: (res.bank_branch), ref_no: (res.ref_no), rwgst: (res.rwgst), rwogst: (Math.round((res.rwgst) * 100 / 105)), rgst: (Math.round(res.rwgst - (res.rwgst) * 100 / 105)), date: (res.date), receipt_no: (res.receipt_no) }}><b>
-                                                    Approve</b>
-                                                </NavLink>
-                                            </NavBtn></td>
                                     </tr>)
                                 }
                                 )}
@@ -190,19 +182,18 @@ function ReceiptTable() {
                         <table className="table-bordered text-black">
                             <thead>
                                 <tr style={{ backgroundColor: "#0078AA" }}>
-                                    <th className="table">Date</th>
-                                    <th className="table">Payment Mode</th>
-                                    <th className="table">Bank Name</th>
-                                    <th className="table">Bank Branch</th>
-                                    <th className="table">Instrument No.</th>
-                                    <th className="table">Amt. Received with GST</th>
-                                    <th className="table">Amt. Received without GST</th>
-                                    <th className="table">Received GST</th>
-                                    <th className="table">Clearing Bank</th>
-                                    <th className="table">Clearing Date</th>
-                                    <th className="table">Receipt No.</th>
-                                    <th className="table">Status</th>
-                                    <th className="table">Approve receipt</th>
+                                    <th className="Postform">Date</th>
+                                    <th className="Postform">Payment Mode</th>
+                                    <th className="Postform">Bank Name</th>
+                                    <th className="Postform">Bank Branch</th>
+                                    <th className="Postform">Instrument No.</th>
+                                    <th className="Postform">Amt. Received with GST</th>
+                                    <th className="Postform">Amt. Received without GST</th>
+                                    <th className="Postform">Received GST</th>
+                                    <th className="Postform">Clearing Bank</th>
+                                    <th className="Postform">Clearing Date</th>
+                                    <th className="Postform">Receipt No.</th>
+                                    <th className="Postform">Status</th>
                                 </tr>
                             </thead>
                             <tbody className="table">
@@ -236,12 +227,6 @@ function ReceiptTable() {
                                         <td>{res.clearing_date}</td>
                                         <Link to='/receiptEdit' state={{ date: (res.date), payment_mode: (res.payment_mode), bank_name: (res.bank_name), rwgst: (res.rwgst), rwogst: (res.rwogst), rgst: (res.rgst), receipt_no: (res.receipt_no), unit_no: (unit_no), tower: (tower) }}>{res.receipt_no}</Link>
                                         <td style={{ backgroundColor: "#c61a09" }}>{res.status}</td>
-                                        <td>
-                                            <NavBtn >
-                                                <NavLink to='/approveReceipt' state={{ tower: (tower), unit_no: (unit_no), bank_name: (res.bank_name), bank_branch: (res.bank_branch), ref_no: (res.ref_no), rwgst: (res.rwgst), rwogst: (Math.round((res.rwgst) * 100 / 105)), rgst: (Math.round(res.rwgst - (res.rwgst) * 100 / 105)), date: (res.date), receipt_no: (res.receipt_no) }}><b>
-                                                    Approve</b>
-                                                </NavLink>
-                                            </NavBtn></td>
                                     </tr>
                                 )}
                             </tbody>

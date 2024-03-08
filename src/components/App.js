@@ -44,7 +44,7 @@ function App() {
           <Route exact path='/bookings' element={<Table />} />
           <Route exact path='/brokers' element={<Brokers />} />
         </Route>
-        <Route exact path='/D' element={<D value={'D'} />} >
+        {/* <Route exact path='/D' element={<D value={'D'} />} >
           <Route exact path='/D/bookingform/' element={<PostForm value={'D'} />} />
           <Route exact path='/D/applicant/' element={<Applicants value={'D'} />} />
           <Route exact path='/D/reports' element={<Reports />} />
@@ -59,7 +59,7 @@ function App() {
           <Route exact path='/C/bookings' element={<Table />} />
           <Route exact path='/C/cancelBookings' element={<CancelBookings value={'C'} />} />
           <Route exact path='/C/canceledBookings' element={<CanceledBookings value={'C'} />} />
-        </Route>
+        </Route> */}
         <Route exact path='/B' element={<B value={'B'} />} >
           <Route exact path='/B/bookingform/' element={<PostForm value={'B'} />} />
           <Route exact path='/B/applicant/' element={<Applicants value={'B'} />} />

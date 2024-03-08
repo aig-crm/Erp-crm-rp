@@ -40,6 +40,8 @@ function Unit() {
     const arrRwogst = [];
     const arrNet_bsp = [];
     const arrNet_due = [];
+    const arrNet_rec = [];
+    const arrNet_pending_amount = [];
     const [resultOtherCharges, setResultOtherCharges] = useState([]);
     const arrbasic_cost = [];
     const arrgst = [];
@@ -273,10 +275,10 @@ function Unit() {
                             <img src={pic2} alt="project2" />
                         </Grid>
                         <Grid item xs={12} sm={3}>
-                            <h6 ><b><u>Customer id:</u> AR-{from}</b></h6>
+                            <h6 ><b><u>Customer id:</u> ARP-{from}</b></h6>
                         </Grid>
                         <Grid item xs={12} sm={3}>
-                            <h6 className="img"><b><u>APPLICANT FILE (AIG ROYAL)</u></b></h6>
+                            <h6 className="img"><b><u>APPLICANT FILE (AIG ROYAL PARK)</u></b></h6>
                         </Grid>
                         <Grid item xs={12} sm={3}>
                             <h6 className="img"><b>Updated by CRM</b></h6>
@@ -306,22 +308,24 @@ function Unit() {
                                     <table className="table-bordered text-black">
                                         <thead>
                                             <tr style={{ backgroundColor: "#0078AA" }}>
-                                                <th className="table">Perticulars</th>
-                                                <th className="table">Due Date</th>
-                                                <th className="table">Net BSP</th>
-                                                <th className="table">CGST</th>
-                                                <th className="table">SGST</th>
-                                                <th className="table">GST</th>
-                                                <th className="table">Net Due Amount</th>
-                                                <th className="table">Received Amount</th>
-                                                <th className="table">Receivable Amount</th>
-                                                <th className="table">ID</th>
+                                                <th className="Postform">Perticulars</th>
+                                                <th className="Postform">Due Date</th>
+                                                <th className="Postform">Net BSP</th>
+                                                <th className="Postform">CGST</th>
+                                                <th className="Postform">SGST</th>
+                                                <th className="Postform">GST</th>
+                                                <th className="Postform">Net Due Amount</th>
+                                                <th className="Postform">Received Amount</th>
+                                                <th className="Postform">Receivable Amount</th>
+                                                <th className="Postform">ID</th>
                                             </tr>
                                         </thead>
                                         <tbody className="table">
                                             {currentTableDataDemand2.map((res) => {
                                                 arrNet_due.push(res.net_due)
                                                 arrNet_bsp.push(res.net_bsp)
+                                                arrNet_rec.push(res.recieved)
+                                                arrNet_pending_amount.push(res.pending_amount)
                                                 return (<tr className="table2" style={{ backgroundColor: "#FFFDD0" }}>
                                                     <td>{res.description}</td>
                                                     <td>{res.due_date}</td>
@@ -339,6 +343,8 @@ function Unit() {
                                             {currentTableDataDemand.map((res) => {
                                                 arrNet_due.push(res.net_due)
                                                 arrNet_bsp.push(res.net_bsp)
+                                                arrNet_rec.push(res.recieved)
+                                                arrNet_pending_amount.push(res.pending_amount)
                                                 return (<tr className="table2" style={{ backgroundColor: "#FFFDD0" }}>
                                                     <td>{res.description}</td>
                                                     <td>{res.due_date}</td>
@@ -356,6 +362,8 @@ function Unit() {
                                             {currentTableDataDemand1.map((res) => {
                                                 arrNet_due.push(res.net_due)
                                                 arrNet_bsp.push(res.net_bsp)
+                                                arrNet_rec.push(res.recieved)
+                                                arrNet_pending_amount.push(res.pending_amount)
                                                 return (<tr className="table2" style={{ backgroundColor: "#FFFDD0" }}>
                                                     <td>{res.description}</td>
                                                     <td>{res.due_date}</td>
@@ -379,8 +387,8 @@ function Unit() {
                                                     <td></td>
                                                     <td></td>
                                                     <td><b>Rs. {sumArray(arrNet_due)}</b></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td><b>Rs. {sumArray(arrNet_rec)}</b></td>
+                                                    <td><b>Rs. {sumArray(arrNet_pending_amount)}</b></td>
                                                     <td></td>
                                                 </tr>
                                             }
@@ -406,29 +414,29 @@ function Unit() {
                                 <table className="table-bordered text-black">
                                     <thead>
                                         <tr style={{ backgroundColor: "#0078AA" }}>
-                                            <th className="table">Date</th>
-                                            <th className="table">Payment Mode</th>
-                                            <th className="table">Bank Name</th>
-                                            <th className="table">Amt. Received with GST</th>
-                                            <th className="table">Amt. Received without GST</th>
-                                            <th className="table">Received GST</th>
-                                            <th className="table">Clearing Bank</th>
-                                            <th className="table">Clearing Date</th>
-                                            <th className="table">Receipt No.</th>
-                                            <th className="table">Status</th>
+                                            <th className="Postform">Date</th>
+                                            <th className="Postform">Payment Mode</th>
+                                            <th className="Postform">Bank Name</th>
+                                            <th className="Postform">Amt. Received with GST</th>
+                                            <th className="Postform">Amt. Received without GST</th>
+                                            <th className="Postform">Received GST</th>
+                                            <th className="Postform">Clearing Bank</th>
+                                            <th className="Postform">Clearing Date</th>
+                                            <th className="Postform">Receipt No.</th>
+                                            <th className="Postform">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody className="table">
                                         {currentTableData.map((res) => {
                                             arrRwgst.push(res.rwgst)
-                                            arrRwogst.push(Math.round((res.rwgst) * 100 / 105))
+                                            arrRwogst.push(res.rwogst)
                                             return (<tr className="table2" style={{ backgroundColor: "#FFFDD0" }}>
                                                 <td>{res.date}</td>
                                                 <td>{res.payment_mode}</td>
                                                 <td>{res.bank_name}</td>
                                                 <td>{res.rwgst}</td>
-                                                <td>{Math.round((res.rwgst) * 100 / 105)}</td>
-                                                <td>{Math.round(res.rwgst - (res.rwgst) * 100 / 105)}</td>
+                                                <td>{res.rwogst}</td>
+                                                <td>{res.rgst}</td>
                                                 <td>{res.clearing_bank}</td>
                                                 <td>{res.clearing_date}</td>
                                                 <td>{res.receipt_no}</td>
@@ -438,14 +446,14 @@ function Unit() {
                                         )}
                                         {currentTableData2.map((res) => {
                                             arrRwgst.push(res.rwgst)
-                                            arrRwogst.push(Math.round((res.rwgst) * 100 / 105))
+                                            arrRwogst.push(res.rwogst)
                                             return (<tr className="table2" style={{ backgroundColor: "#FFFDD0" }}>
                                                 <td>{res.date}</td>
                                                 <td>{res.payment_mode}</td>
                                                 <td>{res.bank_name}</td>
                                                 <td>{res.rwgst}</td>
-                                                <td>{Math.round((res.rwgst) * 100 / 105)}</td>
-                                                <td>{Math.round(res.rwgst - (res.rwgst) * 100 / 105)}</td>
+                                                <td>{res.rwogst}</td>
+                                                <td>{res.rgst}</td>
                                                 <td>{res.clearing_bank}</td>
                                                 <td>{res.clearing_date}</td>
                                                 <td>{res.receipt_no}</td>
@@ -454,16 +462,16 @@ function Unit() {
                                         }
                                         )}
                                         <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                            <td className="Postform"><b>Total</b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b>Rs.{sumArrayRwgst(arrRwgst)}</b></td>
-                                            <td className="Postform"><b>Rs.{sumArrayRwogst(arrRwogst)}</b></td>
-                                            <td className="Postform"><b>Rs.{sumArrayRwgst(arrRwgst) - sumArrayRwogst(arrRwogst)}</b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b></b></td>
+                                            <td><b>Total</b></td>
+                                            <td><b></b></td>
+                                            <td><b></b></td>
+                                            <td><b>Rs.{sumArrayRwgst(arrRwgst)}</b></td>
+                                            <td><b>Rs.{sumArrayRwogst(arrRwogst)}</b></td>
+                                            <td><b>Rs.{sumArrayRwgst(arrRwgst) - sumArrayRwogst(arrRwogst)}</b></td>
+                                            <td><b></b></td>
+                                            <td><b></b></td>
+                                            <td><b></b></td>
+                                            <td><b></b></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -486,17 +494,17 @@ function Unit() {
                                 <table className="table-bordered text-black">
                                     <thead>
                                         <tr style={{ backgroundColor: "#0078AA" }}>
-                                            <th className="table">INSTALLMENT NAME</th>
-                                            <th className="table">INSTALLMENT DATE</th>
-                                            <th className="table">DUE AMOUNT</th>
-                                            <th className="table">AMOUNT RECEIVED</th>
-                                            <th className="table">DATE OF RECEIVED</th>
-                                            <th className="table">BALANCE AMOUNT</th>
-                                            <th className="table">DELAY DAYS</th>
-                                            <th className="table">GRACE PERIOD</th>
-                                            <th className="table">INTEREST PERIOD</th>
-                                            <th className="table">ROI</th>
-                                            <th className="table">INTEREST AMOUNT</th>
+                                            <th className="Postform">INSTALLMENT NAME</th>
+                                            <th className="Postform">INSTALLMENT DATE</th>
+                                            <th className="Postform">DUE AMOUNT</th>
+                                            <th className="Postform">AMOUNT RECEIVED</th>
+                                            <th className="Postform">DATE OF RECEIVED</th>
+                                            <th className="Postform">BALANCE AMOUNT</th>
+                                            <th className="Postform">DELAY DAYS</th>
+                                            <th className="Postform">GRACE PERIOD</th>
+                                            <th className="Postform">INTEREST PERIOD</th>
+                                            <th className="Postform">ROI</th>
+                                            <th className="Postform">INTEREST AMOUNT</th>
                                         </tr>
                                     </thead>
                                     <tbody className="table">
@@ -506,10 +514,10 @@ function Unit() {
                                                 return (<tr className="table2" style={{ backgroundColor: "#FFFDD0" }}>
                                                     <td>{res.description}</td>
                                                     <td>{res.due_date}</td>
-                                                    <td>{Math.round(parseInt(res.due_amt) * 100 / 105)}</td>
-                                                    <td>{Math.round(parseInt(res.received_amt) * 100 / 105)}</td>
+                                                    <td>{Math.round(parseInt(res.due_amt))}</td>
+                                                    <td>{Math.round(parseInt(res.received_amt))}</td>
                                                     <td>{res.received_date}</td>
-                                                    <td>{Math.round((parseInt(res.due_amt) * 100 / 105) - (parseInt(res.received_amt) * 100 / 105))}</td>
+                                                    <td>{Math.round((parseInt(res.due_amt)) - (parseInt(res.received_amt)))}</td>
                                                     <td>{getDifferenceInDays(new Date(res.due_date), new Date(res.received_date))}</td>
                                                     <td>0</td>
                                                     <td>{getDifferenceInDays(new Date(res.due_date), new Date(res.received_date))}</td>
@@ -517,20 +525,20 @@ function Unit() {
                                                     <td>0</td>
                                                 </tr>)
                                             }
-                                            else if (parseInt(parseInt(res.due_amt) * 100 / 105) < (parseInt(res.received_amt) * 100 / 105) && getDifferenceInDays(new Date(res.due_date), new Date(res.received_date)) > 0) {
-                                                arr.push(Math.round((parseInt(res.due_amt) * 100 / 105) * getDifferenceInDays(new Date(res.due_date), new Date(res.received_date)) * 0.1 / 365))
+                                            else if (parseInt(parseInt(res.due_amt)) < (parseInt(res.received_amt)) && getDifferenceInDays(new Date(res.due_date), new Date(res.received_date)) > 0) {
+                                                arr.push(Math.round((parseInt(res.due_amt)) * getDifferenceInDays(new Date(res.due_date), new Date(res.received_date)) * 0.1 / 365))
                                                 return (<tr className="table2" style={{ backgroundColor: "#FFFDD0" }}>
                                                     <td>{res.description}</td>
                                                     <td>{res.due_date}</td>
-                                                    <td>{Math.round(parseInt(res.due_amt) * 100 / 105)}</td>
-                                                    <td>{Math.round(parseInt(res.received_amt) * 100 / 105)}</td>
+                                                    <td>{Math.round(parseInt(res.due_amt))}</td>
+                                                    <td>{Math.round(parseInt(res.received_amt))}</td>
                                                     <td>{res.received_date}</td>
-                                                    <td>{Math.round((parseInt(res.due_amt) * 100 / 105) - (parseInt(res.received_amt) * 100 / 105))}</td>
+                                                    <td>{Math.round((parseInt(res.due_amt)) - (parseInt(res.received_amt)))}</td>
                                                     <td>{getDifferenceInDays(new Date(res.due_date), new Date(res.received_date))}</td>
                                                     <td>0</td>
                                                     <td>{getDifferenceInDays(new Date(res.due_date), new Date(res.received_date))}</td>
                                                     <td>10</td>
-                                                    <td>{Math.round((parseInt(res.due_amt) * 100 / 105) * getDifferenceInDays(new Date(res.due_date), new Date(res.received_date)) * 0.1 / 365)}</td>
+                                                    <td>{Math.round((parseInt(res.due_amt)) * getDifferenceInDays(new Date(res.due_date), new Date(res.received_date)) * 0.1 / 365)}</td>
                                                 </tr>)
                                             } else if ((res.due_date === '')) {
                                                 return (<tr className="table2" style={{ backgroundColor: "#FFFDD0" }}>
@@ -542,19 +550,19 @@ function Unit() {
                                                 </tr>)
                                             }
                                             else {
-                                                arr.push(Math.round((parseInt(res.received_amt) * 100 / 105) * getDifferenceInDays(new Date(res.due_date), new Date(res.received_date)) * 0.1 / 365))
+                                                arr.push(Math.round((parseInt(res.received_amt)) * getDifferenceInDays(new Date(res.due_date), new Date(res.received_date)) * 0.1 / 365))
                                                 return (<tr className="table2" style={{ backgroundColor: "#FFFDD0" }}>
                                                     <td>{res.description}</td>
                                                     <td>{res.due_date}</td>
-                                                    <td>{Math.round(parseInt(res.due_amt) * 100 / 105)}</td>
-                                                    <td>{Math.round(parseInt(res.received_amt) * 100 / 105)}</td>
+                                                    <td>{Math.round(parseInt(res.due_amt))}</td>
+                                                    <td>{Math.round(parseInt(res.received_amt))}</td>
                                                     <td>{res.received_date}</td>
-                                                    <td>{Math.round((parseInt(res.due_amt) * 100 / 105) - (parseInt(res.received_amt) * 100 / 105))}</td>
+                                                    <td>{Math.round((parseInt(res.due_amt)) - (parseInt(res.received_amt)))}</td>
                                                     <td>{getDifferenceInDays(new Date(res.due_date), new Date(res.received_date))}</td>
                                                     <td>0</td>
                                                     <td>{getDifferenceInDays(new Date(res.due_date), new Date(res.received_date))}</td>
                                                     <td>10</td>
-                                                    <td>{Math.round(parseInt(res.received_amt) * 100 / 105 * getDifferenceInDays(new Date(res.due_date), new Date(res.received_date)) * 0.1 / 365)}</td>
+                                                    <td>{Math.round(parseInt(res.received_amt) * getDifferenceInDays(new Date(res.due_date), new Date(res.received_date)) * 0.1 / 365)}</td>
                                                 </tr>)
                                             }
                                         }
@@ -562,17 +570,17 @@ function Unit() {
                                         {
 
                                             <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform"><b>Total Interest</b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b>Rs. {sumArray(arr)}</b></td>
+                                                <td><b>Total Interest</b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b>Rs. {sumArray(arr)}</b></td>
                                             </tr>
 
                                         }
@@ -598,12 +606,12 @@ function Unit() {
                                 <table className="table-bordered text-black">
                                     <thead>
                                         <tr style={{ backgroundColor: "#0078AA" }}>
-                                            <th className="table">PARAMETERS</th>
-                                            <th className="table">BASIC COST</th>
-                                            <th className="table">GST</th>
-                                            <th className="table">TOTAL COST</th>
-                                            <th className="table">PAID</th>
-                                            <th className="table">BALANCE</th>
+                                            <th className="Postform">PARAMETERS</th>
+                                            <th className="Postform">BASIC COST</th>
+                                            <th className="Postform">GST</th>
+                                            <th className="Postform">TOTAL COST</th>
+                                            <th className="Postform">PAID</th>
+                                            <th className="Postform">BALANCE</th>
                                         </tr>
                                     </thead>
                                     <tbody className="table">
@@ -760,12 +768,12 @@ function Unit() {
                                         )}
                                         {
                                             <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform"><b>Total: </b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrbasic_cost)}</b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrgst)}</b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrtotal_cost)}</b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrpaid_cost)}</b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrbalance)}</b></td>
+                                                <td><b>Total: </b></td>
+                                                <td><b>Rs. <br />{sumArray(arrbasic_cost)}</b></td>
+                                                <td><b>Rs. <br />{sumArray(arrgst)}</b></td>
+                                                <td><b>Rs. <br />{sumArray(arrtotal_cost)}</b></td>
+                                                <td><b>Rs. <br />{sumArray(arrpaid_cost)}</b></td>
+                                                <td><b>Rs. <br />{sumArray(arrbalance)}</b></td>
                                             </tr>
                                         }
                                     </tbody>
@@ -824,10 +832,10 @@ function Unit() {
                             <img src={pic2} alt="project2" />
                         </Grid>
                         <Grid item xs={12} sm={3}>
-                            <h6 ><b><u>Customer id:</u> AR-{from}</b></h6>
+                            <h6 ><b><u>Customer id:</u> ARP-{from}</b></h6>
                         </Grid>
                         <Grid item xs={12} sm={3}>
-                            <h6 className="img"><b><u>APPLICANT FILE (AIG ROYAL)</u></b></h6>
+                            <h6 className="img"><b><u>APPLICANT FILE (AIG ROYAL PARK)</u></b></h6>
                         </Grid>
                         <Grid item xs={12} sm={3}>
                             <h6 className="img"><b>Updated by CRM</b></h6>
@@ -857,19 +865,21 @@ function Unit() {
                                     <table className="table-bordered text-black">
                                         <thead>
                                             <tr style={{ backgroundColor: "#0078AA" }}>
-                                                <th className="table">Perticulars</th>
-                                                <th className="table">Due Date</th>
-                                                <th className="table">Net BSP</th>
-                                                <th className="table">Due Amount</th>
-                                                <th className="table">Received Amount</th>
-                                                <th className="table">Receivable Amount</th>
-                                                <th className="table">ID</th>
+                                                <th className="Postform">Perticulars</th>
+                                                <th className="Postform">Due Date</th>
+                                                <th className="Postform">Net BSP</th>
+                                                <th className="Postform">Due Amount</th>
+                                                <th className="Postform">Received Amount</th>
+                                                <th className="Postform">Receivable Amount</th>
+                                                <th className="Postform">ID</th>
                                             </tr>
                                         </thead>
                                         <tbody className="table">
                                             {currentTableDataDemand2.map((res) => {
                                                 arrNet_due.push(res.net_due)
                                                 arrNet_bsp.push(res.net_due)
+                                                arrNet_rec.push(res.recieved)
+                                                arrNet_pending_amount.push(res.pending_amount)
                                                 return (<tr className="table2" style={{ backgroundColor: "#FFFDD0" }}>
                                                     <td>{res.description}</td>
                                                     <td>{res.due_date}</td>
@@ -884,6 +894,8 @@ function Unit() {
                                             {currentTableDataDemand.map((res) => {
                                                 arrNet_due.push(res.net_due)
                                                 arrNet_bsp.push(res.net_due)
+                                                arrNet_rec.push(res.recieved)
+                                                arrNet_pending_amount.push(res.pending_amount)
                                                 return (<tr className="table2" style={{ backgroundColor: "#FFFDD0" }}>
                                                     <td>{res.description}</td>
                                                     <td>{res.due_date}</td>
@@ -898,6 +910,8 @@ function Unit() {
                                             {currentTableDataDemand1.map((res) => {
                                                 arrNet_due.push(res.net_due)
                                                 arrNet_bsp.push(res.due)
+                                                arrNet_rec.push(res.recieved)
+                                                arrNet_pending_amount.push(res.pending_amount)
                                                 return (<tr className="table2" style={{ backgroundColor: "#FFFDD0" }}>
                                                     <td>{res.description}</td>
                                                     <td>{res.due_date}</td>
@@ -915,8 +929,8 @@ function Unit() {
                                                     <td></td>
                                                     <td><b>Rs. {sumArray(arrNet_bsp)}</b></td>
                                                     <td><b>Rs. {sumArray(arrNet_due)}</b></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td><b>Rs. {sumArray(arrNet_rec)}</b></td>
+                                                    <td><b>Rs. {sumArray(arrNet_pending_amount)}</b></td>
                                                     <td></td>
                                                 </tr>
                                             }
@@ -942,16 +956,16 @@ function Unit() {
                                 <table className="table-bordered text-black">
                                     <thead>
                                         <tr style={{ backgroundColor: "#0078AA" }}>
-                                            <th className="table">Date</th>
-                                            <th className="table">Payment Mode</th>
-                                            <th className="table">Bank Name</th>
-                                            <th className="table">Amt. Received with GST</th>
-                                            <th className="table">Amt. Received without GST</th>
-                                            <th className="table">Received GST</th>
-                                            <th className="table">Clearing Bank</th>
-                                            <th className="table">Clearing Date</th>
-                                            <th className="table">Receipt No.</th>
-                                            <th className="table">Status</th>
+                                            <th className="Postform">Date</th>
+                                            <th className="Postform">Payment Mode</th>
+                                            <th className="Postform">Bank Name</th>
+                                            <th className="Postform">Amt. Received with GST</th>
+                                            <th className="Postform">Amt. Received without GST</th>
+                                            <th className="Postform">Received GST</th>
+                                            <th className="Postform">Clearing Bank</th>
+                                            <th className="Postform">Clearing Date</th>
+                                            <th className="Postform">Receipt No.</th>
+                                            <th className="Postform">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody className="table">
@@ -990,16 +1004,16 @@ function Unit() {
                                         }
                                         )}
                                         <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                            <td className="Postform"><b>Total</b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b>Rs.{sumArrayRwgst(arrRwgst)}</b></td>
-                                            <td className="Postform"><b>Rs.{sumArrayRwogst(arrRwogst)}</b></td>
-                                            <td className="Postform"><b>Rs.{sumArrayRwgst(arrRwgst) - sumArrayRwogst(arrRwogst)}</b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b></b></td>
+                                            <td><b>Total</b></td>
+                                            <td><b></b></td>
+                                            <td><b></b></td>
+                                            <td><b>Rs.{sumArrayRwgst(arrRwgst)}</b></td>
+                                            <td><b>Rs.{sumArrayRwogst(arrRwogst)}</b></td>
+                                            <td><b>Rs.{sumArrayRwgst(arrRwgst) - sumArrayRwogst(arrRwogst)}</b></td>
+                                            <td><b></b></td>
+                                            <td><b></b></td>
+                                            <td><b></b></td>
+                                            <td><b></b></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1022,17 +1036,17 @@ function Unit() {
                                 <table className="table-bordered text-black">
                                     <thead>
                                         <tr style={{ backgroundColor: "#0078AA" }}>
-                                            <th className="table">INSTALLMENT NAME</th>
-                                            <th className="table">INSTALLMENT DATE</th>
-                                            <th className="table">DUE AMOUNT</th>
-                                            <th className="table">AMOUNT RECEIVED</th>
-                                            <th className="table">DATE OF RECEIVED</th>
-                                            <th className="table">BALANCE AMOUNT</th>
-                                            <th className="table">DELAY DAYS</th>
-                                            <th className="table">GRACE PERIOD</th>
-                                            <th className="table">INTEREST PERIOD</th>
-                                            <th className="table">ROI</th>
-                                            <th className="table">INTEREST AMOUNT</th>
+                                            <th className="Postform">INSTALLMENT NAME</th>
+                                            <th className="Postform">INSTALLMENT DATE</th>
+                                            <th className="Postform">DUE AMOUNT</th>
+                                            <th className="Postform">AMOUNT RECEIVED</th>
+                                            <th className="Postform">DATE OF RECEIVED</th>
+                                            <th className="Postform">BALANCE AMOUNT</th>
+                                            <th className="Postform">DELAY DAYS</th>
+                                            <th className="Postform">GRACE PERIOD</th>
+                                            <th className="Postform">INTEREST PERIOD</th>
+                                            <th className="Postform">ROI</th>
+                                            <th className="Postform">INTEREST AMOUNT</th>
                                         </tr>
                                     </thead>
                                     <tbody className="table">
@@ -1098,17 +1112,17 @@ function Unit() {
                                         {
 
                                             <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform"><b>Total Interest</b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b>Rs. {sumArray(arr)}</b></td>
+                                                <td><b>Total Interest</b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b>Rs. {sumArray(arr)}</b></td>
                                             </tr>
 
                                         }
@@ -1134,12 +1148,12 @@ function Unit() {
                                 <table className="table-bordered text-black">
                                     <thead>
                                         <tr style={{ backgroundColor: "#0078AA" }}>
-                                            <th className="table">PARAMETERS</th>
-                                            <th className="table">BASIC COST</th>
-                                            <th className="table">GST</th>
-                                            <th className="table">TOTAL COST</th>
-                                            <th className="table">PAID</th>
-                                            <th className="table">BALANCE</th>
+                                            <th className="Postform">PARAMETERS</th>
+                                            <th className="Postform">BASIC COST</th>
+                                            <th className="Postform">GST</th>
+                                            <th className="Postform">TOTAL COST</th>
+                                            <th className="Postform">PAID</th>
+                                            <th className="Postform">BALANCE</th>
                                         </tr>
                                     </thead>
                                     <tbody className="table">
@@ -1296,12 +1310,12 @@ function Unit() {
                                         )}
                                         {
                                             <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform"><b>Total: </b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrbasic_cost)}</b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrgst)}</b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrtotal_cost)}</b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrpaid_cost)}</b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrbalance)}</b></td>
+                                                <td><b>Total: </b></td>
+                                                <td><b>Rs. <br />{sumArray(arrbasic_cost)}</b></td>
+                                                <td><b>Rs. <br />{sumArray(arrgst)}</b></td>
+                                                <td><b>Rs. <br />{sumArray(arrtotal_cost)}</b></td>
+                                                <td><b>Rs. <br />{sumArray(arrpaid_cost)}</b></td>
+                                                <td><b>Rs. <br />{sumArray(arrbalance)}</b></td>
                                             </tr>
                                         }
                                     </tbody>
