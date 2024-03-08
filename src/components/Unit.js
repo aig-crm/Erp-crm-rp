@@ -462,16 +462,16 @@ function Unit() {
                                         }
                                         )}
                                         <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                            <td className="Postform"><b>Total</b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b>Rs.{sumArrayRwgst(arrRwgst)}</b></td>
-                                            <td className="Postform"><b>Rs.{sumArrayRwogst(arrRwogst)}</b></td>
-                                            <td className="Postform"><b>Rs.{sumArrayRwgst(arrRwgst) - sumArrayRwogst(arrRwogst)}</b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b></b></td>
+                                            <td><b>Total</b></td>
+                                            <td><b></b></td>
+                                            <td><b></b></td>
+                                            <td><b>Rs.{sumArrayRwgst(arrRwgst)}</b></td>
+                                            <td><b>Rs.{sumArrayRwogst(arrRwogst)}</b></td>
+                                            <td><b>Rs.{sumArrayRwgst(arrRwgst) - sumArrayRwogst(arrRwogst)}</b></td>
+                                            <td><b></b></td>
+                                            <td><b></b></td>
+                                            <td><b></b></td>
+                                            <td><b></b></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -570,17 +570,17 @@ function Unit() {
                                         {
 
                                             <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform"><b>Total Interest</b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b>Rs. {sumArray(arr)}</b></td>
+                                                <td><b>Total Interest</b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b>Rs. {sumArray(arr)}</b></td>
                                             </tr>
 
                                         }
@@ -768,12 +768,12 @@ function Unit() {
                                         )}
                                         {
                                             <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform"><b>Total: </b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrbasic_cost)}</b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrgst)}</b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrtotal_cost)}</b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrpaid_cost)}</b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrbalance)}</b></td>
+                                                <td><b>Total: </b></td>
+                                                <td><b>Rs. <br />{sumArray(arrbasic_cost)}</b></td>
+                                                <td><b>Rs. <br />{sumArray(arrgst)}</b></td>
+                                                <td><b>Rs. <br />{sumArray(arrtotal_cost)}</b></td>
+                                                <td><b>Rs. <br />{sumArray(arrpaid_cost)}</b></td>
+                                                <td><b>Rs. <br />{sumArray(arrbalance)}</b></td>
                                             </tr>
                                         }
                                     </tbody>
@@ -1004,16 +1004,16 @@ function Unit() {
                                         }
                                         )}
                                         <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                            <td className="Postform"><b>Total</b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b>Rs.{sumArrayRwgst(arrRwgst)}</b></td>
-                                            <td className="Postform"><b>Rs.{sumArrayRwogst(arrRwogst)}</b></td>
-                                            <td className="Postform"><b>Rs.{sumArrayRwgst(arrRwgst) - sumArrayRwogst(arrRwogst)}</b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b></b></td>
-                                            <td className="Postform"><b></b></td>
+                                            <td><b>Total</b></td>
+                                            <td><b></b></td>
+                                            <td><b></b></td>
+                                            <td><b>Rs.{sumArrayRwgst(arrRwgst)}</b></td>
+                                            <td><b>Rs.{sumArrayRwogst(arrRwogst)}</b></td>
+                                            <td><b>Rs.{sumArrayRwgst(arrRwgst) - sumArrayRwogst(arrRwogst)}</b></td>
+                                            <td><b></b></td>
+                                            <td><b></b></td>
+                                            <td><b></b></td>
+                                            <td><b></b></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1112,17 +1112,17 @@ function Unit() {
                                         {
 
                                             <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform"><b>Total Interest</b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b></b></td>
-                                                <td className="Postform"><b>Rs. {sumArray(arr)}</b></td>
+                                                <td><b>Total Interest</b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b></b></td>
+                                                <td><b>Rs. {sumArray(arr)}</b></td>
                                             </tr>
 
                                         }
@@ -1310,12 +1310,12 @@ function Unit() {
                                         )}
                                         {
                                             <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform"><b>Total: </b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrbasic_cost)}</b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrgst)}</b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrtotal_cost)}</b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrpaid_cost)}</b></td>
-                                                <td className="Postform"><b>Rs. <br />{sumArray(arrbalance)}</b></td>
+                                                <td><b>Total: </b></td>
+                                                <td><b>Rs. <br />{sumArray(arrbasic_cost)}</b></td>
+                                                <td><b>Rs. <br />{sumArray(arrgst)}</b></td>
+                                                <td><b>Rs. <br />{sumArray(arrtotal_cost)}</b></td>
+                                                <td><b>Rs. <br />{sumArray(arrpaid_cost)}</b></td>
+                                                <td><b>Rs. <br />{sumArray(arrbalance)}</b></td>
                                             </tr>
                                         }
                                     </tbody>

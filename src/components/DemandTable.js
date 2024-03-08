@@ -171,6 +171,15 @@ function DemandTable() {
                     Download as PDF
                 </button>
                 <div ref={printRef} className='Demand'>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
                     <Grid container spacing={3} className='Postform'>
                         <Grid item xs={12}>
                             <h6 className="Postform"><b><u><center>Demand Letter</center></u></b></h6>
@@ -243,31 +252,31 @@ function DemandTable() {
                                             if (sumArray(interest_val) > 0) {
                                                 pen.set(res.net_due - res.recieved)
                                                 return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                    <td className="Postform"><b>{res.description}</b></td>
+                                                    <td><b>{res.description}</b></td>
                                                     <td>{res.due_date}</td>
-                                                    <td className="Postform"><b>₹{res.net_bsp}</b></td>
-                                                    <td className="Postform"><b>₹{res.cgst}</b></td>
-                                                    <td className="Postform"><b>₹{res.sgst}</b></td>
-                                                    <td className="Postform"><b>₹{res.gst}</b></td>
-                                                    <td className="Postform"><b>₹{res.net_due}</b></td>
-                                                    <td className="Postform"><b>₹{res.recieved}</b></td>
-                                                    <td className="Postform"><b>₹{res.pending_amount}</b></td>
-                                                    <td className="Postform"><b>₹{sumArray(interest_val)}</b></td>
+                                                    <td><b>₹{res.net_bsp}</b></td>
+                                                    <td><b>₹{res.cgst}</b></td>
+                                                    <td><b>₹{res.sgst}</b></td>
+                                                    <td><b>₹{res.gst}</b></td>
+                                                    <td><b>₹{res.net_due}</b></td>
+                                                    <td><b>₹{res.recieved}</b></td>
+                                                    <td><b>₹{res.pending_amount}</b></td>
+                                                    <td><b>₹{sumArray(interest_val)}</b></td>
                                                 </tr>)
                                             }
                                             else {
                                                 pen.set(res.net_due - res.recieved)
                                                 return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                    <td className="Postform"><b>{res.description}</b></td>
+                                                    <td><b>{res.description}</b></td>
                                                     <td>{res.due_date}</td>
-                                                    <td className="Postform"><b>₹{res.net_bsp}</b></td>
-                                                    <td className="Postform"><b>₹{res.cgst}</b></td>
-                                                    <td className="Postform"><b>₹{res.sgst}</b></td>
-                                                    <td className="Postform"><b>₹{res.gst}</b></td>
-                                                    <td className="Postform"><b>₹{res.net_due}</b></td>
-                                                    <td className="Postform"><b>₹{res.recieved}</b></td>
-                                                    <td className="Postform"><b>₹{res.net_due - res.recieved}</b></td>
-                                                    <td className="Postform"><b>₹0</b></td>
+                                                    <td><b>₹{res.net_bsp}</b></td>
+                                                    <td><b>₹{res.cgst}</b></td>
+                                                    <td><b>₹{res.sgst}</b></td>
+                                                    <td><b>₹{res.gst}</b></td>
+                                                    <td><b>₹{res.net_due}</b></td>
+                                                    <td><b>₹{res.recieved}</b></td>
+                                                    <td><b>₹{res.net_due - res.recieved}</b></td>
+                                                    <td><b>₹0</b></td>
                                                 </tr>)
                                             }
                                         }
@@ -296,6 +305,15 @@ function DemandTable() {
                     Download as PDF
                 </button>
                 <div ref={printRef} className='Demand'>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
                     <Grid container spacing={3} className='Postform'>
                         <Grid item xs={12}>
                             <h6 className="Postform"><b><u><center>Demand Letter</center></u></b></h6>
@@ -364,7 +382,7 @@ function DemandTable() {
                                                 pen.push(res.net_due - res.recieved)
                                                 return (
                                             <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform"><b>{res.description}</b></td>
+                                                <td><b>{res.description}</b></td>
                                                 <td>{res.due_date}</td>
                                                 <td className="Postform"><b>₹{res.net_bsp}</b></td>
                                                 <td className="Postform"><b>₹{res.cgst}</b></td>
@@ -373,7 +391,7 @@ function DemandTable() {
                                                 <td className="Postform"><b>₹{res.net_due}</b></td>
                                                 <td className="Postform"><b>₹{res.recieved}</b></td>
                                                 <td className="Postform"><b>₹{res.net_due - res.recieved}</b></td>
-                                            </tr>)}
+                                            </tr>
                                         )}
                                     </tbody>
                                 </table>
@@ -399,9 +417,18 @@ function DemandTable() {
                     Download as PDF
                 </button>
                 <div ref={printRef} className='Demand'>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
                     <Grid container spacing={3} className='Postform'>
                         <Grid item xs={12}>
-                            <h6 className="mt-3 text-dark"><b><u><center>Demand Letter</center></u></b></h6>
+                            <h6 className="Postform"><b><u><center>Demand Letter</center></u></b></h6>
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <ApplicantDetails value={unit_no} value2={tower} />
@@ -424,13 +451,13 @@ function DemandTable() {
                                 <table className="table-bordered text-black">
                                     <thead>
                                         <tr style={{ backgroundColor: "#0078AA" }}>
-                                            <th className="Postform">Perticulars</th>
-                                            <th className="Postform">Due Date</th>
-                                            <th className="Postform">Net BSP</th>
-                                            <th className="Postform">Due Amount</th>
-                                            <th className="Postform">Received Amount</th>
-                                            <th className="Postform">Receivable Amount</th>
-                                            <th className="Postform">Interest Amount</th>
+                                            <th className="table">Perticulars</th>
+                                            <th className="table">Due Date</th>
+                                            <th className="table">Net BSP</th>
+                                            <th className="table">Due Amount</th>
+                                            <th className="table">Received Amount</th>
+                                            <th className="table">Receivable Amount</th>
+                                            <th className="table">Interest Amount</th>
                                         </tr>
                                     </thead>
                                     <tbody className="table">
@@ -438,7 +465,10 @@ function DemandTable() {
                                             <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                 <td>{res.description}</td>
                                                 <td>{res.due_date}</td>
-                                                <td>{res.net_due}</td>
+                                                <td>{res.net_bsp}</td>
+                                                <td>{res.cgst}</td>
+                                                <td>{res.sgst}</td>
+                                                <td>{res.gst}</td>
                                                 <td>{res.net_due}</td>
                                                 <td>{res.recieved}</td>
                                                 <td>{res.pending_amount}</td>
@@ -449,7 +479,10 @@ function DemandTable() {
                                             <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                 <td>{res.description}</td>
                                                 <td>{res.due_date}</td>
-                                                <td>{res.net_due}</td>
+                                                <td>{res.net_bsp}</td>
+                                                <td>{res.cgst}</td>
+                                                <td>{res.sgst}</td>
+                                                <td>{res.gst}</td>
                                                 <td>{res.net_due}</td>
                                                 <td>{res.recieved}</td>
                                                 <td>{res.net_due - res.recieved}</td>
@@ -460,14 +493,14 @@ function DemandTable() {
                                         pen.push(res.net_due - res.recieved)
                                         return (
                                             <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform"><b>{res.description}</b></td>
+                                                <td><b>{res.description}</b></td>
                                                 <td>{res.due_date}</td>
                                                 <td className="Postform"><b>₹{res.net_due}</b></td>
                                                 <td className="Postform"><b>₹{res.net_due}</b></td>
                                                 <td className="Postform"><b>₹{res.recieved}</b></td>
                                                 <td className="Postform"><b>₹{res.net_due - res.recieved}</b></td>
                                                 <td className="Postform"><b>₹{sumArray(interest_val)}</b></td>
-                                            </tr>)}
+                                            </tr>
                                         )}
                                     </tbody>
                                 </table>
@@ -493,9 +526,18 @@ function DemandTable() {
                     Download as PDF
                 </button>
                 <div ref={printRef} className='Demand'>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
                     <Grid container spacing={3} className='Postform'>
                         <Grid item xs={12}>
-                            <h6 className="mt-3 text-dark"><b><u><center>Demand Letter</center></u></b></h6>
+                            <h6 className="Postform"><b><u><center>Demand Letter</center></u></b></h6>
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <ApplicantDetails value={unit_no} value2={tower} />
@@ -518,46 +560,50 @@ function DemandTable() {
                                 <table className="table-bordered text-black">
                                     <thead>
                                         <tr style={{ backgroundColor: "#0078AA" }}>
-                                            <th className="Postform">Perticulars</th>
-                                            <th className="Postform">Due Date</th>
-                                            <th className="Postform">Net BSP</th>
-                                            <th className="Postform">Due Amount</th>
-                                            <th className="Postform">Received Amount</th>
-                                            <th className="Postform">Receivable Amount</th>
+                                            <th className="table">Perticulars</th>
+                                            <th className="table">Due Date</th>
+                                            <th className="table">Net BSP</th>
+                                            <th className="table">Due Amount</th>
+                                            <th className="table">Received Amount</th>
+                                            <th className="table">Receivable Amount</th>
                                         </tr>
                                     </thead>
                                     <tbody className="table">
                                         {currentTableDataDemand2.map((res) =>
-                                            <tr className="table2" style={{ backgroundColor: "#FFFDD0" }}>
+                                            <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                 <td>{res.description}</td>
                                                 <td>{res.due_date}</td>
-                                                <td>{res.net_due}</td>
+                                                <td>{res.net_bsp}</td>
+                                                <td>{res.cgst}</td>
+                                                <td>{res.sgst}</td>
+                                                <td>{res.gst}</td>
                                                 <td>{res.net_due}</td>
                                                 <td>{res.recieved}</td>
                                                 <td>{res.pending_amount}</td>
                                             </tr>
                                         )}
                                         {currentTableDataDemand.map((res) =>
-                                            <tr className="table2" style={{ backgroundColor: "#FFFDD0" }}>
+                                            <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                 <td>{res.description}</td>
                                                 <td>{res.due_date}</td>
-                                                <td>{res.net_due}</td>
+                                                <td>{res.net_bsp}</td>
+                                                <td>{res.cgst}</td>
+                                                <td>{res.sgst}</td>
+                                                <td>{res.gst}</td>
                                                 <td>{res.net_due}</td>
                                                 <td>{res.recieved}</td>
                                                 <td>{res.net_due - res.recieved}</td>
                                             </tr>
                                         )}
                                         {currentTableDataDemand3.map((res) =>
-                                            {
-                                                pen.push(res.net_due - res.recieved)
-                                                return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
+                                            <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                 <td className="Postform"><b>{res.description}</b></td>
                                                 <td>{res.due_date}</td>
                                                 <td className="Postform"><b>₹{res.net_due}</b></td>
                                                 <td className="Postform"><b>₹{res.net_due}</b></td>
                                                 <td className="Postform"><b>₹{res.recieved}</b></td>
                                                 <td className="Postform"><b>₹{res.net_due - res.recieved}</b></td>
-                                            </tr>)}
+                                            </tr>
                                         )}
                                     </tbody>
                                 </table>
