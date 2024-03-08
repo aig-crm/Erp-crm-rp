@@ -393,6 +393,7 @@ function DemandTable() {
                                                 <td className="Postform"><b>₹{res.net_due - res.recieved}</b></td>
                                             </tr>
                                         )}
+                                        )}
                                     </tbody>
                                 </table>
                                 <Pagination
@@ -501,6 +502,7 @@ function DemandTable() {
                                                 <td className="Postform"><b>₹{res.net_due - res.recieved}</b></td>
                                                 <td className="Postform"><b>₹{sumArray(interest_val)}</b></td>
                                             </tr>
+                                        )}
                                         )}
                                     </tbody>
                                 </table>
