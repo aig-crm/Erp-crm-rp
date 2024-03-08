@@ -11,6 +11,14 @@ function InventoryTable() {
     const location = useLocation();
     const { tower } = location.state;
 
+    const fileName = () => {
+        if (tower != null) {
+            return (tower) + '-Tower Inventory Report.csv';
+        } else {
+            return 'All Inventory Report.csv';
+        }
+    }
+
     let PageSize = 20;
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -70,7 +78,7 @@ function InventoryTable() {
                 <div >
                     <h3 className="mt-3 text-dark"><b><u><center>{tower} Tower Inventory Report</center></u></b></h3>
 
-                    <CSVLink data={result} filename="Inventory Report" className="btn btn-success mb-3" style={{ color: "#000" }}>
+                    <CSVLink data={result} filename={fileName()} className="btn btn-success mb-3" style={{ color: "#000" }}>
                         Export {tower} Tower Inventory Report
                     </CSVLink>
 

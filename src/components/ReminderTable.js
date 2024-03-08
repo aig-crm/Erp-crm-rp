@@ -167,10 +167,10 @@ function ReminderTable() {
                             <div className="Postform">
                                 <h6 ><b>Dated: </b>{date}</h6>
                                 <br></br>
-                                <h6><b>ALPINE INFRA PROJECTS PVT LTD</b></h6>
-                                <h6>PLOT NO. D-16, SECTOR-1, G.NOIDA WEST</h6>
-                                <h6><b>Email: </b>alpineinfraprojects@gmail.com</h6>
-                                <h6><b>Web: </b>www.aigroyal.in</h6>
+                                <h6><b>AIGIN BUILDCON PVT LTD</b></h6>
+                                <h6>Plot No.GH-3/4, Park Town, NH-24, Aditya World City, Ghaziabad (UP)</h6>
+                                <h6><b>Email: </b>aiginroyalpark@gmail.com</h6>
+                                <h6><b>Web: </b>https://aiginroyalpark.com/</h6>
                                 <h6><b>State: </b>Uttar Pradesh</h6>
                                 <h6><b>State Code: </b>09</h6>
                             </div>
@@ -267,10 +267,10 @@ function ReminderTable() {
                             <div className="Postform">
                                 <h6 className="Postform"><b>Dated: </b>{date}</h6>
                                 <br></br>
-                                <h6 className="Postform"><b>ALPINE INFRA PROJECTS PVT LTD</b></h6>
-                                <h6 className="Postform">PLOT NO. D-16, SECTOR-1, G.NOIDA WEST</h6>
-                                <h6 className="Postform"><b>Email: </b>alpineinfraprojects@gmail.com</h6>
-                                <h6 className="Postform"><b>Web: </b>www.aigroyal.in</h6>
+                                <h6 className="Postform"><b>AIGIN BUILDCON PVT LTD</b></h6>
+                                <h6 className="Postform">Plot No.GH-3/4, Park Town, NH-24, Aditya World City, Ghaziabad (UP)</h6>
+                                <h6 className="Postform"><b>Email: </b>aiginroyalpark@gmail.com</h6>
+                                <h6 className="Postform"><b>Web: </b>https://aiginroyalpark.com/</h6>
                                 <h6 className="Postform"><b>State: </b>Uttar Pradesh</h6>
                                 <h6 className="Postform"><b>State Code: </b>09</h6>
                             </div>

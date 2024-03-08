@@ -30,6 +30,7 @@ function DemandTable() {
     const { interest } = location.state;
     const current = new Date();
     const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
+    const pen = [];
 
     const getDataDemand = () => {
 
@@ -181,10 +182,10 @@ function DemandTable() {
                             <div className="Postform">
                                 <h6 ><b>Dated: </b>{date}</h6>
                                 <br></br>
-                                <h6><b>ALPINE INFRAPROJECTS PVT LTD</b></h6>
-                                <h6>PLOT NO. D-16, SECTOR-1, G.NOIDA WEST</h6>
-                                <h6><b>Email: </b>alpineinfraprojects@gmail.com</h6>
-                                <h6><b>Web: </b>www.aigroyal.in</h6>
+                                <h6><b>AIGIN BUILDCON PVT LTD</b></h6>
+                                <h6>Plot No.GH-3/4, Park Town, NH-24, Aditya World City, Ghaziabad (UP)</h6>
+                                <h6><b>Email: </b>aiginroyalpark@gmail.com</h6>
+                                <h6><b>Web: </b>https://aiginroyalpark.com/</h6>
                                 <h6><b>State: </b>Uttar Pradesh</h6>
                                 <h6><b>State Code: </b>09</h6>
                             </div>
@@ -195,21 +196,22 @@ function DemandTable() {
                                 <table className="table-bordered text-black">
                                     <thead>
                                         <tr style={{ backgroundColor: "#0078AA" }}>
-                                            <th className="table">Perticulars</th>
-                                            <th className="table">Due Date</th>
-                                            <th className="table">Net BSP</th>
-                                            <th className="table">CGST</th>
-                                            <th className="table">SGST</th>
-                                            <th className="table">GST</th>
-                                            <th className="table">Net Due Amount</th>
-                                            <th className="table">Received Amount</th>
-                                            <th className="table">Receivable Amount</th>
-                                            <th className="table">Interest Amount</th>
+                                            <th className="Postform">Perticulars</th>
+                                            <th className="Postform">Due Date</th>
+                                            <th className="Postform">Net BSP</th>
+                                            <th className="Postform">CGST</th>
+                                            <th className="Postform">SGST</th>
+                                            <th className="Postform">GST</th>
+                                            <th className="Postform">Net Due Amount</th>
+                                            <th className="Postform">Received Amount</th>
+                                            <th className="Postform">Receivable Amount</th>
+                                            <th className="Postform">Interest Amount</th>
                                         </tr>
                                     </thead>
                                     <tbody className="table">
                                         {currentTableDataDemand2.map((res) =>
-                                            <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
+                                            {
+                                                return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                 <td>{res.description}</td>
                                                 <td>{res.due_date}</td>
                                                 <td>{res.net_bsp}</td>
@@ -220,10 +222,11 @@ function DemandTable() {
                                                 <td>{res.recieved}</td>
                                                 <td>{res.pending_amount}</td>
                                                 <td></td>
-                                            </tr>
+                                            </tr>)}
                                         )}
                                         {currentTableDataDemand.map((res) =>
-                                            <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
+                                            {
+                                                return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                 <td>{res.description}</td>
                                                 <td>{res.due_date}</td>
                                                 <td>{res.net_bsp}</td>
@@ -234,10 +237,11 @@ function DemandTable() {
                                                 <td>{res.recieved}</td>
                                                 <td>{res.net_due - res.recieved}</td>
                                                 <td></td>
-                                            </tr>
+                                            </tr>)}
                                         )}
                                         {currentTableDataDemand3.map((res) => {
                                             if (sumArray(interest_val) > 0) {
+                                                pen.set(res.net_due - res.recieved)
                                                 return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                     <td className="Postform"><b>{res.description}</b></td>
                                                     <td>{res.due_date}</td>
@@ -252,6 +256,7 @@ function DemandTable() {
                                                 </tr>)
                                             }
                                             else {
+                                                pen.set(res.net_due - res.recieved)
                                                 return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                     <td className="Postform"><b>{res.description}</b></td>
                                                     <td>{res.due_date}</td>
@@ -278,7 +283,7 @@ function DemandTable() {
                                 />
                             </div>
                         </Grid>
-                        <DemandStatement value={id} value2='Demand' />
+                        <DemandStatement value={id} value2='Demand' value3={pen[0]} value4={unit_no} value5={tower} />
                     </Grid>
                 </div>
             </React.Fragment>
@@ -302,10 +307,10 @@ function DemandTable() {
                             <div className="Postform">
                                 <h6 ><b>Dated: </b>{date}</h6>
                                 <br></br>
-                                <h6><b>ALPINE INFRAPROJECTS PVT LTD</b></h6>
-                                <h6>PLOT NO. D-16, SECTOR-1, G.NOIDA WEST</h6>
-                                <h6><b>Email: </b>alpineinfraprojects@gmail.com</h6>
-                                <h6><b>Web: </b>www.aigroyal.in</h6>
+                                <h6><b>AIGIN BUILDCON PVT LTD</b></h6>
+                                <h6>Plot No.GH-3/4, Park Town, NH-24, Aditya World City, Ghaziabad (UP)</h6>
+                                <h6><b>Email: </b>aiginroyalpark@gmail.com</h6>
+                                <h6><b>Web: </b>https://aiginroyalpark.com/</h6>
                                 <h6><b>State: </b>Uttar Pradesh</h6>
                                 <h6><b>State Code: </b>09</h6>
                             </div>
@@ -316,20 +321,20 @@ function DemandTable() {
                                 <table className="table-bordered text-black">
                                     <thead>
                                         <tr style={{ backgroundColor: "#0078AA" }}>
-                                            <th className="table">Perticulars</th>
-                                            <th className="table">Due Date</th>
-                                            <th className="table">Net BSP</th>
-                                            <th className="table">CGST</th>
-                                            <th className="table">SGST</th>
-                                            <th className="table">GST</th>
-                                            <th className="table">Net Due Amount</th>
-                                            <th className="table">Received Amount</th>
-                                            <th className="table">Receivable Amount</th>
+                                            <th className="Postform">Perticulars</th>
+                                            <th className="Postform">Due Date</th>
+                                            <th className="Postform">Net BSP</th>
+                                            <th className="Postform">CGST</th>
+                                            <th className="Postform">SGST</th>
+                                            <th className="Postform">GST</th>
+                                            <th className="Postform">Net Due Amount</th>
+                                            <th className="Postform">Received Amount</th>
+                                            <th className="Postform">Receivable Amount</th>
                                         </tr>
                                     </thead>
                                     <tbody className="table">
-                                        {currentTableDataDemand2.map((res) =>
-                                            <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
+                                        {currentTableDataDemand2.map((res) =>{
+                                                return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                 <td>{res.description}</td>
                                                 <td>{res.due_date}</td>
                                                 <td>{res.net_bsp}</td>
@@ -339,9 +344,10 @@ function DemandTable() {
                                                 <td>{res.net_due}</td>
                                                 <td>{res.recieved}</td>
                                                 <td>{res.pending_amount}</td>
-                                            </tr>
+                                            </tr>)}
                                         )}
-                                        {currentTableDataDemand.map((res) =>
+                                        {currentTableDataDemand.map((res) =>{
+                                                return (
                                             <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                 <td>{res.description}</td>
                                                 <td>{res.due_date}</td>
@@ -352,9 +358,11 @@ function DemandTable() {
                                                 <td>{res.net_due}</td>
                                                 <td>{res.recieved}</td>
                                                 <td>{res.net_due - res.recieved}</td>
-                                            </tr>
+                                            </tr>)}
                                         )}
-                                        {currentTableDataDemand3.map((res) =>
+                                        {currentTableDataDemand3.map((res) =>{
+                                                pen.push(res.net_due - res.recieved)
+                                                return (
                                             <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                 <td className="Postform"><b>{res.description}</b></td>
                                                 <td>{res.due_date}</td>
@@ -365,7 +373,7 @@ function DemandTable() {
                                                 <td className="Postform"><b>₹{res.net_due}</b></td>
                                                 <td className="Postform"><b>₹{res.recieved}</b></td>
                                                 <td className="Postform"><b>₹{res.net_due - res.recieved}</b></td>
-                                            </tr>
+                                            </tr>)}
                                         )}
                                     </tbody>
                                 </table>
@@ -378,7 +386,7 @@ function DemandTable() {
                                 />
                             </div>
                         </Grid>
-                        <DemandStatement value={id} value2='Demand' />
+                        <DemandStatement value={id} value2='Demand' value3={pen[0]} value4={unit_no} value5={tower} />
                     </Grid>
                 </div>
             </React.Fragment>
@@ -402,10 +410,10 @@ function DemandTable() {
                             <div className="Postform">
                                 <h6 className="Postform"><b>Dated: </b>{date}</h6>
                                 <br></br>
-                                <h6 className="Postform"><b>ALPINE INFRAPROJECTS PVT LTD</b></h6>
-                                <h6 className="Postform">PLOT NO. D-16, SECTOR-1, G.NOIDA WEST</h6>
-                                <h6 className="Postform"><b>Email: </b>alpineinfraprojects@gmail.com</h6>
-                                <h6 className="Postform"><b>Web: </b>www.aigroyal.in</h6>
+                                <h6 className="Postform"><b>AIGIN BUILDCON PVT LTD</b></h6>
+                                <h6 className="Postform">Plot No.GH-3/4, Park Town, NH-24, Aditya World City, Ghaziabad (UP)</h6>
+                                <h6 className="Postform"><b>Email: </b>aiginroyalpark@gmail.com</h6>
+                                <h6 className="Postform"><b>Web: </b>https://aiginroyalpark.com/</h6>
                                 <h6 className="Postform"><b>State: </b>Uttar Pradesh</h6>
                                 <h6 className="Postform"><b>State Code: </b>09</h6>
                             </div>
@@ -416,13 +424,13 @@ function DemandTable() {
                                 <table className="table-bordered text-black">
                                     <thead>
                                         <tr style={{ backgroundColor: "#0078AA" }}>
-                                            <th className="table">Perticulars</th>
-                                            <th className="table">Due Date</th>
-                                            <th className="table">Net BSP</th>
-                                            <th className="table">Due Amount</th>
-                                            <th className="table">Received Amount</th>
-                                            <th className="table">Receivable Amount</th>
-                                            <th className="table">Interest Amount</th>
+                                            <th className="Postform">Perticulars</th>
+                                            <th className="Postform">Due Date</th>
+                                            <th className="Postform">Net BSP</th>
+                                            <th className="Postform">Due Amount</th>
+                                            <th className="Postform">Received Amount</th>
+                                            <th className="Postform">Receivable Amount</th>
+                                            <th className="Postform">Interest Amount</th>
                                         </tr>
                                     </thead>
                                     <tbody className="table">
@@ -448,7 +456,9 @@ function DemandTable() {
                                                 <td></td>
                                             </tr>
                                         )}
-                                        {currentTableDataDemand3.map((res) =>
+                                        {currentTableDataDemand3.map((res) =>{
+                                        pen.push(res.net_due - res.recieved)
+                                        return (
                                             <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                 <td className="Postform"><b>{res.description}</b></td>
                                                 <td>{res.due_date}</td>
@@ -457,7 +467,7 @@ function DemandTable() {
                                                 <td className="Postform"><b>₹{res.recieved}</b></td>
                                                 <td className="Postform"><b>₹{res.net_due - res.recieved}</b></td>
                                                 <td className="Postform"><b>₹{sumArray(interest_val)}</b></td>
-                                            </tr>
+                                            </tr>)}
                                         )}
                                     </tbody>
                                 </table>
@@ -470,7 +480,7 @@ function DemandTable() {
                                 />
                             </div>
                         </Grid>
-                        <DemandStatement value={id} value2='Demand' />
+                        <DemandStatement value={id} value2='Demand' value3={pen[0]} value4={unit_no} value5={tower} />
                     </Grid>
                 </div>
             </React.Fragment>
@@ -494,10 +504,10 @@ function DemandTable() {
                             <div className="Postform">
                                 <h6 className="Postform"><b>Dated: </b>{date}</h6>
                                 <br></br>
-                                <h6 className="Postform"><b>ALPINE INFRAPROJECTS PVT LTD</b></h6>
-                                <h6 className="Postform">PLOT NO. D-16, SECTOR-1, G.NOIDA WEST</h6>
-                                <h6 className="Postform"><b>Email: </b>alpineinfraprojects@gmail.com</h6>
-                                <h6 className="Postform"><b>Web: </b>www.aigroyal.in</h6>
+                                <h6 className="Postform"><b>AIGIN BUILDCON PVT LTD</b></h6>
+                                <h6 className="Postform">Plot No.GH-3/4, Park Town, NH-24, Aditya World City, Ghaziabad (UP)</h6>
+                                <h6 className="Postform"><b>Email: </b>aiginroyalpark@gmail.com</h6>
+                                <h6 className="Postform"><b>Web: </b>https://aiginroyalpark.com/</h6>
                                 <h6 className="Postform"><b>State: </b>Uttar Pradesh</h6>
                                 <h6 className="Postform"><b>State Code: </b>09</h6>
                             </div>
@@ -508,12 +518,12 @@ function DemandTable() {
                                 <table className="table-bordered text-black">
                                     <thead>
                                         <tr style={{ backgroundColor: "#0078AA" }}>
-                                            <th className="table">Perticulars</th>
-                                            <th className="table">Due Date</th>
-                                            <th className="table">Net BSP</th>
-                                            <th className="table">Due Amount</th>
-                                            <th className="table">Received Amount</th>
-                                            <th className="table">Receivable Amount</th>
+                                            <th className="Postform">Perticulars</th>
+                                            <th className="Postform">Due Date</th>
+                                            <th className="Postform">Net BSP</th>
+                                            <th className="Postform">Due Amount</th>
+                                            <th className="Postform">Received Amount</th>
+                                            <th className="Postform">Receivable Amount</th>
                                         </tr>
                                     </thead>
                                     <tbody className="table">
@@ -538,14 +548,16 @@ function DemandTable() {
                                             </tr>
                                         )}
                                         {currentTableDataDemand3.map((res) =>
-                                            <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
+                                            {
+                                                pen.push(res.net_due - res.recieved)
+                                                return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                 <td className="Postform"><b>{res.description}</b></td>
                                                 <td>{res.due_date}</td>
                                                 <td className="Postform"><b>₹{res.net_due}</b></td>
                                                 <td className="Postform"><b>₹{res.net_due}</b></td>
                                                 <td className="Postform"><b>₹{res.recieved}</b></td>
                                                 <td className="Postform"><b>₹{res.net_due - res.recieved}</b></td>
-                                            </tr>
+                                            </tr>)}
                                         )}
                                     </tbody>
                                 </table>
@@ -558,7 +570,7 @@ function DemandTable() {
                                 />
                             </div>
                         </Grid>
-                        <DemandStatement value={id} value2='Demand' />
+                        <DemandStatement value={id} value2='Demand' value3={pen[0]} value4={unit_no} value5={tower} />
                     </Grid>
                 </div>
             </React.Fragment>

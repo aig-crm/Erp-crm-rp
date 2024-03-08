@@ -29,6 +29,14 @@ function Table() {
         }
     }
 
+    const fileName2 = () => {
+        if (tower != null) {
+            return (tower) + '-tower all bookings.csv';
+        } else {
+            return 'all bookings.csv';
+        }
+    }
+
     function sumArray(array) {
         let sum = 0;
 
@@ -81,7 +89,7 @@ function Table() {
                         ref={pdfExportComponent}>
                         <h3 className="mt-3 text-dark"><b><u><center>Booked {tower} tower units sheet</center></u></b></h3>
 
-                        <CSVLink data={result} filename="Tower Data" className="btn btn-success mb-3" style={{ color: "#000" }}>
+                        <CSVLink data={result} filename={fileName2()} className="btn btn-success mb-3" style={{ color: "#000" }}>
                             Export {tower} Tower Data
                         </CSVLink>
 
