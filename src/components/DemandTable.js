@@ -10,6 +10,9 @@ import pic2 from '../assets/pic2.png';
 import ApplicantDetails from "./ApplicantDetails";
 import StatementSubject from "./StatementSubject";
 import DemandStatement from "./DemandStatement";
+import PageTemplate from "./pageTemplate";
+import { PDFExport } from "@progress/kendo-react-pdf";
+import { NavBtn, NavBtnLink } from "./NavbarElements";
 
 function DemandTable() {
 
@@ -144,33 +147,34 @@ function DemandTable() {
 
     const printRef = React.useRef();
 
-    const handleDownloadPdf = async () => {
-        const element = printRef.current;
-        const canvas = await html2canvas(element);
-        const data = canvas.toDataURL('image/png');
+    // const handleDownloadPdf = async () => {
+    //     const element = printRef.current;
+    //     const canvas = await html2canvas(element);
+    //     const data = canvas.toDataURL('image/png');
 
-        const pdf = new jsPDF();
-        const imgProperties = pdf.getImageProperties(data);
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight =
-            (imgProperties.height * pdfWidth) / imgProperties.width;
+    //     const pdf = new jsPDF();
+    //     const imgProperties = pdf.getImageProperties(data);
+    //     const pdfWidth = pdf.internal.pageSize.getWidth();
+    //     const pdfHeight =
+    //         (imgProperties.height * pdfWidth) / imgProperties.width;
 
-        pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    //     pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
         if (unit_no != null) {
-            pdf.save((unit_no) + '-demand report.pdf');
+            var __filename = ((unit_no) + '-demand report.pdf');
         } else {
-            pdf.save('Demand report.pdf');
+            var __filename = ('Demand report.pdf');
         }
-    };
+    // };
 
     if (gst_choice === 'Excld GST' && interest === 'with interest') {
         return (
 
             <React.Fragment>
-                <button type="button" onClick={handleDownloadPdf}>
-                    Download as PDF
-                </button>
-                <div ref={printRef} className='Demand'>
+                
+                <div className='Demand'>
+                <PDFExport pageTemplate={PageTemplate} fileName={__filename}
+            paperSize="A1"
+            ref={printRef}>
                         <br />
                         <br />
                         <br />
@@ -254,14 +258,14 @@ function DemandTable() {
                                                 return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                     <td><b>{res.description}</b></td>
                                                     <td>{res.due_date}</td>
-                                                    <td><b>₹{res.net_bsp}</b></td>
-                                                    <td><b>₹{res.cgst}</b></td>
-                                                    <td><b>₹{res.sgst}</b></td>
-                                                    <td><b>₹{res.gst}</b></td>
-                                                    <td><b>₹{res.net_due}</b></td>
-                                                    <td><b>₹{res.recieved}</b></td>
-                                                    <td><b>₹{res.pending_amount}</b></td>
-                                                    <td><b>₹{sumArray(interest_val)}</b></td>
+                                                    <td><b>Rs. {res.net_bsp}</b></td>
+                                                    <td><b>Rs. {res.cgst}</b></td>
+                                                    <td><b>Rs. {res.sgst}</b></td>
+                                                    <td><b>Rs. {res.gst}</b></td>
+                                                    <td><b>Rs. {res.net_due}</b></td>
+                                                    <td><b>Rs. {res.recieved}</b></td>
+                                                    <td><b>Rs. {res.pending_amount}</b></td>
+                                                    <td><b>Rs. {sumArray(interest_val)}</b></td>
                                                 </tr>)
                                             }
                                             else {
@@ -269,20 +273,21 @@ function DemandTable() {
                                                 return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                     <td><b>{res.description}</b></td>
                                                     <td>{res.due_date}</td>
-                                                    <td><b>₹{res.net_bsp}</b></td>
-                                                    <td><b>₹{res.cgst}</b></td>
-                                                    <td><b>₹{res.sgst}</b></td>
-                                                    <td><b>₹{res.gst}</b></td>
-                                                    <td><b>₹{res.net_due}</b></td>
-                                                    <td><b>₹{res.recieved}</b></td>
-                                                    <td><b>₹{res.net_due - res.recieved}</b></td>
-                                                    <td><b>₹0</b></td>
+                                                    <td><b>Rs. {res.net_bsp}</b></td>
+                                                    <td><b>Rs. {res.cgst}</b></td>
+                                                    <td><b>Rs. {res.sgst}</b></td>
+                                                    <td><b>Rs. {res.gst}</b></td>
+                                                    <td><b>Rs. {res.net_due}</b></td>
+                                                    <td><b>Rs. {res.recieved}</b></td>
+                                                    <td><b>Rs. {res.net_due - res.recieved}</b></td>
+                                                    <td><b>Rs. 0</b></td>
                                                 </tr>)
                                             }
                                         }
                                         )}
                                     </tbody>
                                 </table>
+                                
                                 <Pagination
                                     className="pagination-bar"
                                     currentPage={currentPage}
@@ -294,6 +299,15 @@ function DemandTable() {
                         </Grid>
                         <DemandStatement value={id} value2='Demand' value3={pen[0]} value4={unit_no} value5={tower} />
                     </Grid>
+                    </PDFExport>
+                    <NavBtn
+            onClick={() => {
+              if (printRef.current) {
+                printRef.current.save();
+              }
+            }}
+          ><NavBtnLink to='/'><b><u>Export PDF</u></b></NavBtnLink>
+          </NavBtn>
                 </div>
             </React.Fragment>
         );
@@ -301,10 +315,11 @@ function DemandTable() {
         return (
 
             <React.Fragment>
-                <button type="button" onClick={handleDownloadPdf}>
-                    Download as PDF
-                </button>
-                <div ref={printRef} className='Demand'>
+                
+                <div className='Demand'>
+                <PDFExport pageTemplate={PageTemplate} fileName={__filename}
+            paperSize="A1"
+            ref={printRef}>
                         <br />
                         <br />
                         <br />
@@ -384,13 +399,13 @@ function DemandTable() {
                                             <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                 <td><b>{res.description}</b></td>
                                                 <td>{res.due_date}</td>
-                                                <td className="Postform"><b>₹{res.net_bsp}</b></td>
-                                                <td className="Postform"><b>₹{res.cgst}</b></td>
-                                                <td className="Postform"><b>₹{res.sgst}</b></td>
-                                                <td className="Postform"><b>₹{res.gst}</b></td>
-                                                <td className="Postform"><b>₹{res.net_due}</b></td>
-                                                <td className="Postform"><b>₹{res.recieved}</b></td>
-                                                <td className="Postform"><b>₹{res.net_due - res.recieved}</b></td>
+                                                <td className="Postform"><b>Rs. {res.net_bsp}</b></td>
+                                                <td className="Postform"><b>Rs. {res.cgst}</b></td>
+                                                <td className="Postform"><b>Rs. {res.sgst}</b></td>
+                                                <td className="Postform"><b>Rs. {res.gst}</b></td>
+                                                <td className="Postform"><b>Rs. {res.net_due}</b></td>
+                                                <td className="Postform"><b>Rs. {res.recieved}</b></td>
+                                                <td className="Postform"><b>Rs. {res.net_due - res.recieved}</b></td>
                                             </tr>
                                         )}
                                         )}
@@ -407,6 +422,15 @@ function DemandTable() {
                         </Grid>
                         <DemandStatement value={id} value2='Demand' value3={pen[0]} value4={unit_no} value5={tower} />
                     </Grid>
+                    </PDFExport>
+                    <NavBtn
+            onClick={() => {
+              if (printRef.current) {
+                printRef.current.save();
+              }
+            }}
+          ><NavBtnLink to='/'><b><u>Export PDF</u></b></NavBtnLink>
+          </NavBtn>
                 </div>
             </React.Fragment>
         );
@@ -414,10 +438,11 @@ function DemandTable() {
         return (
 
             <React.Fragment>
-                <button type="button" onClick={handleDownloadPdf}>
-                    Download as PDF
-                </button>
-                <div ref={printRef} className='Demand'>
+                
+                <div className='Demand'>
+                <PDFExport pageTemplate={PageTemplate} fileName={__filename}
+            paperSize="A1"
+            ref={printRef}>
                         <br />
                         <br />
                         <br />
@@ -455,6 +480,9 @@ function DemandTable() {
                                             <th className="table">Perticulars</th>
                                             <th className="table">Due Date</th>
                                             <th className="table">Net BSP</th>
+                                            <th className="Postform">CGST</th>
+                                            <th className="Postform">SGST</th>
+                                            <th className="Postform">GST</th>
                                             <th className="table">Due Amount</th>
                                             <th className="table">Received Amount</th>
                                             <th className="table">Receivable Amount</th>
@@ -496,11 +524,14 @@ function DemandTable() {
                                             <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                 <td><b>{res.description}</b></td>
                                                 <td>{res.due_date}</td>
-                                                <td className="Postform"><b>₹{res.net_due}</b></td>
-                                                <td className="Postform"><b>₹{res.net_due}</b></td>
-                                                <td className="Postform"><b>₹{res.recieved}</b></td>
-                                                <td className="Postform"><b>₹{res.net_due - res.recieved}</b></td>
-                                                <td className="Postform"><b>₹{sumArray(interest_val)}</b></td>
+                                                <td className="Postform"><b>Rs. {res.net_bsp}</b></td>
+                                                <td className="Postform"><b>Rs. {res.cgst}</b></td>
+                                                <td className="Postform"><b>Rs. {res.sgst}</b></td>
+                                                <td className="Postform"><b>Rs. {res.gst}</b></td>
+                                                <td className="Postform"><b>Rs. {res.net_due}</b></td>
+                                                <td className="Postform"><b>Rs. {res.recieved}</b></td>
+                                                <td className="Postform"><b>Rs. {res.net_due - res.recieved}</b></td>
+                                                <td className="Postform"><b>Rs. {sumArray(interest_val)}</b></td>
                                             </tr>
                                         )}
                                         )}
@@ -517,6 +548,15 @@ function DemandTable() {
                         </Grid>
                         <DemandStatement value={id} value2='Demand' value3={pen[0]} value4={unit_no} value5={tower} />
                     </Grid>
+                    </PDFExport>
+                    <NavBtn
+            onClick={() => {
+              if (printRef.current) {
+                printRef.current.save();
+              }
+            }}
+          ><NavBtnLink to='/'><b><u>Export PDF</u></b></NavBtnLink>
+          </NavBtn>
                 </div>
             </React.Fragment>
         );
@@ -524,10 +564,11 @@ function DemandTable() {
         return (
 
             <React.Fragment>
-                <button type="button" onClick={handleDownloadPdf}>
-                    Download as PDF
-                </button>
-                <div ref={printRef} className='Demand'>
+                
+                <div className='Demand'>
+                <PDFExport pageTemplate={PageTemplate} fileName={__filename}
+            paperSize="A1"
+            ref={printRef}>
                         <br />
                         <br />
                         <br />
@@ -565,6 +606,9 @@ function DemandTable() {
                                             <th className="table">Perticulars</th>
                                             <th className="table">Due Date</th>
                                             <th className="table">Net BSP</th>
+                                            <th className="Postform">CGST</th>
+                                            <th className="Postform">SGST</th>
+                                            <th className="Postform">GST</th>
                                             <th className="table">Due Amount</th>
                                             <th className="table">Received Amount</th>
                                             <th className="table">Receivable Amount</th>
@@ -601,10 +645,13 @@ function DemandTable() {
                                             <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
                                                 <td className="Postform"><b>{res.description}</b></td>
                                                 <td>{res.due_date}</td>
-                                                <td className="Postform"><b>₹{res.net_due}</b></td>
-                                                <td className="Postform"><b>₹{res.net_due}</b></td>
-                                                <td className="Postform"><b>₹{res.recieved}</b></td>
-                                                <td className="Postform"><b>₹{res.net_due - res.recieved}</b></td>
+                                                <td className="Postform"><b>Rs. {res.net_bsp}</b></td>
+                                                <td className="Postform"><b>Rs. {res.cgst}</b></td>
+                                                <td className="Postform"><b>Rs. {res.sgst}</b></td>
+                                                <td className="Postform"><b>Rs. {res.gst}</b></td>
+                                                <td className="Postform"><b>Rs. {res.net_due}</b></td>
+                                                <td className="Postform"><b>Rs. {res.recieved}</b></td>
+                                                <td className="Postform"><b>Rs. {res.net_due - res.recieved}</b></td>
                                             </tr>
                                         )}
                                     </tbody>
@@ -620,6 +667,15 @@ function DemandTable() {
                         </Grid>
                         <DemandStatement value={id} value2='Demand' value3={pen[0]} value4={unit_no} value5={tower} />
                     </Grid>
+                    </PDFExport>
+                    <NavBtn
+            onClick={() => {
+              if (printRef.current) {
+                printRef.current.save();
+              }
+            }}
+          ><NavBtnLink to='/'><b><u>Export PDF</u></b></NavBtnLink>
+          </NavBtn>
                 </div>
             </React.Fragment>
         );

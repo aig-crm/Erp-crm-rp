@@ -39,7 +39,7 @@ function SeeFile() {
                     result.length > 0 ? result.map((el, i) => {
                         return (
                             <>
-                                <a href={"https://bf1a0822608d.ngrok.app/uploads/" + el.file} >{el.file}</a>
+                                <a href={"https://37fbb6b2c392.ngrok.app/uploads/" + el.file} >{el.file}</a>
                                 <br />
                                 <br />
                             </>

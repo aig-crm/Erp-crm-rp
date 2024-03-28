@@ -27,7 +27,7 @@ function ReceiptForm() {
             bank_branch: bb,
             ref_no: rn,
             rwgst: rwgst,
-            rgst: rwgst * 0.05,
+            rgst: rwgst * 5/105,
             receipt_no: (unit_no) + "-" + Math.random()
         }).then((response) => {
             console.log(response);
@@ -90,7 +90,7 @@ function ReceiptForm() {
                                     alert("Form has errors for unit - " + (unit_no));
                                 } else { setrwgst(e.target.value) }
                             }} required />
-                        <label className="Postform"><b>Received gst amt: {rwgst * 0.05}</b></label>
+                        <label className="Postform"><b>Received gst amt: {rwgst * 5/105}</b></label>
                     </div>
                     <NavBtn onClick={register}>
                         <NavBtnLink to='/' ><b>Submit</b></NavBtnLink>

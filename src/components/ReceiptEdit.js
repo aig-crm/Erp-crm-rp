@@ -26,7 +26,7 @@ function ReceiptEdit() {
             payment_mode: new_paymode,
             bank_name: new_bn,
             rwgst: new_rwgst,
-            rgst: (new_rwgst * 0.05),
+            rgst: (new_rwgst * 5/105),
             receipt_no: (receipt_no)
         }).then((response) => {
             console.log(response);

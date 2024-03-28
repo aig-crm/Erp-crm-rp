@@ -7,6 +7,9 @@ import { Link, useLocation } from "react-router-dom";
 import { Grid } from '@material-ui/core';
 import pic1 from '../assets/pic1.jpg';
 import pic2 from '../assets/pic2.png';
+import { PDFExport } from "@progress/kendo-react-pdf";
+import PageTemplate from "./pageTemplate";
+import { NavBtn, NavBtnLink } from "./NavbarElements";
 
 function ReceiptTable() {
 
@@ -73,29 +76,32 @@ function ReceiptTable() {
 
     const printRef = React.useRef();
 
-    const handleDownloadPdf = async () => {
-        const element = printRef.current;
-        const canvas = await html2canvas(element);
-        const data = canvas.toDataURL('image/png');
+    // const handleDownloadPdf = async () => {
+    //     const element = printRef.current;
+    //     const canvas = await html2canvas(element);
+    //     const data = canvas.toDataURL('image/png');
 
-        const pdf = new jsPDF();
-        const imgProperties = pdf.getImageProperties(data);
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight =
-            (imgProperties.height * pdfWidth) / imgProperties.width;
+    //     const pdf = new jsPDF();
+    //     const imgProperties = pdf.getImageProperties(data);
+    //     const pdfWidth = pdf.internal.pageSize.getWidth();
+    //     const pdfHeight =
+    //         (imgProperties.height * pdfWidth) / imgProperties.width;
 
-        pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    //     pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
         if (unit_no != null) {
-            pdf.save((unit_no) + '-receipt.pdf');
+            var __filename = (unit_no) + '-receipt.pdf';
         } else {
-            pdf.save('Receipt.pdf');
+            var __filename = ('Receipt.pdf');
         }
-    };
+    // };
 
     if (gst_choice === 'Excld GST') {
         return (
             <React.Fragment>
                 <div className="row">
+                <PDFExport pageTemplate={PageTemplate} fileName={__filename}
+            paperSize="A2"
+            ref={printRef}>
                     <div>
                         <h3 className="mt-3 text-dark"><b><u><center>Receipts of {unit_no} unit</center></u></b></h3>
 
@@ -162,6 +168,16 @@ function ReceiptTable() {
                             onPageChange={page => setCurrentPage(page)}
                         />
                     </div>
+                    </PDFExport>
+                    <br />
+                    <NavBtn
+            onClick={() => {
+              if (printRef.current) {
+                printRef.current.save();
+              }
+            }}
+          ><NavBtnLink to='/'><b><u>Export PDF</u></b></NavBtnLink>
+          </NavBtn>
                 </div>
             </React.Fragment>
         )
@@ -171,6 +187,9 @@ function ReceiptTable() {
 
             <React.Fragment>
                 <div className='Demand' ref={printRef}>
+                <PDFExport pageTemplate={PageTemplate} fileName={__filename}
+            paperSize="A2"
+            ref={printRef}>
                     <Grid container spacing={3} className='Postform'>
                         <Grid item xs={12}>
                             <img className='img' src={pic1} alt="project" />
@@ -240,11 +259,17 @@ function ReceiptTable() {
                             pageSize={PageSize}
                             onPageChange={page => setCurrentPage(page)}
                         />
-
-                        <button type="button" onClick={handleDownloadPdf}>
-                            Download as PDF
-                        </button>
                     </div>
+                    </PDFExport>
+                    <br />
+                    <NavBtn
+            onClick={() => {
+              if (printRef.current) {
+                printRef.current.save();
+              }
+            }}
+          ><NavBtnLink to='/'><b><u>Export PDF</u></b></NavBtnLink>
+          </NavBtn>
                 </div>
             </React.Fragment>
         );
