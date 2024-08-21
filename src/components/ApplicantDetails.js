@@ -30,12 +30,13 @@ function ApplicantDetails(props) {
     <div>
       {result.map((res) =>
 
-        <div className="Postform">
-          <h1 className="Postform"><b>Customer id: ARP-{props.value}</b></h1>
-          <h6 className="Postform"><b>{res.applicant_name}</b></h6>
-          <h6 className="Postform"><b>{res.address}</b></h6>
-          <h6 className="Postform"><b>(M): </b>{res.applicant_mob_no}</h6>
-          <h6 className="Postform"><b>Email: </b>{res.applicant_email}</h6>
+        <div className="Postform2">
+          <h1 className="Postform2"><b>Customer id: ARP - {props.value}</b></h1>
+          <h6 className="Postform2"><b>{res.applicant_name}</b></h6>
+          <h6 className="Postform2"><b>{res.coapplicant_name}</b></h6>
+          <h6 className="Postform2"><b>{res.address}</b></h6>
+          <h6 className="Postform2"><b>(M): </b>{res.applicant_mob_no}</h6>
+          <h6 className="Postform2"><b>Email: </b>{res.applicant_email}</h6>
         </div>
       )}
     </div>

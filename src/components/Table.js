@@ -89,30 +89,24 @@ function Table() {
                         ref={pdfExportComponent}>
                         <h3 className="mt-3 text-dark"><b><u><center>Booked {tower} tower units sheet</center></u></b></h3>
 
-                        <CSVLink data={result} filename={fileName2()} className="btn btn-success mb-3" style={{ color: "#000" }}>
-                            Export {tower} Tower Data
-                        </CSVLink>
-
                         <table className="table-bordered text-black">
                             <thead>
-                                <tr style={{ backgroundColor: "#0078AA" }} className="table2">
+                                <tr style={{ backgroundColor: "#0078AA" }} className="Postform2">
+                                    <th><b>Sno.</b></th>
                                     <th><b>Tower</b></th>
                                     <th><b>Booking Date</b></th>
                                     <th><b>Unit No.</b></th>
                                     <th><b>Area Sq. Ft.</b></th>
                                     <th><b>Applicant Name</b></th>
                                     <th><b>Applicant Mobile No.</b></th>
-                                    <th><b>Applicant Email No.</b></th>
                                     <th><b>Co-Applicant Name</b></th>
-                                    <th><b>Co-Applicant Mobile No.</b></th>
-                                    <th><b>Co-Applicant Email No.</b></th>
                                     <th><b>Broker</b></th>
-                                    <th><b>Plan</b></th>
+                                    <th><b>Payment Plan</b></th>
                                     <th><b>Loan</b></th>
                                     <th><b>Rate</b></th>
                                     <th><b>Net Basic Price</b></th>
                                     <th><b>Gst</b></th>
-                                    <th><b>Total Basic Cost</b></th>
+                                    <th><b>Total Cost</b></th>
                                     <th><b>Received with Gst</b></th>
                                     <th><b>Received Gst</b></th>
                                     <th><b>Received without Gst</b></th>
@@ -130,17 +124,15 @@ function Table() {
                                     arr_rwogst.push(res.rwogst);
                                     arr_balance.push(res.balance)
                                     return (
-                                        <tr className="table2" style={{ backgroundColor: "#FFFDD0" }}>
+                                        <tr className="Postform2" style={{ backgroundColor: "#FFFDD0" }}>
+                                            <td>{countArray(count_unit)}</td>
                                             <td>{res.tower}</td>
                                             <td>{res.booking_date}</td>
                                             <Link to='/unit' state={{ from: (res.unit_no), tower: (res.tower), gst_choice: (res.gst_choice) }}>{res.unit_no}</Link>
                                             <td>{res.area_sqft}</td>
                                             <td>{res.applicant_name}</td>
                                             <td>{res.applicant_mob_no}</td>
-                                            <td>{res.applicant_email}</td>
                                             <td>{res.coapplicant_name}</td>
-                                            <td>{res.coapplicant_mob_no}</td>
-                                            <td>{res.coapplicant_email}</td>
                                             <td>{res.broker}</td>
                                             <td>{res.plan}</td>
                                             <td>{res.loan}</td>
@@ -151,16 +143,17 @@ function Table() {
                                             <td>{res.rwgst}</td>
                                             <td>{res.rgst}</td>
                                             <td>{res.rwogst}</td>
-                                            <td>{res.rec_per}</td>
+                                            <td>{res.rec_per}%</td>
                                             <td>{res.balance}</td>
                                         </tr>)
                                 }
                                 )}
                                 {
-                                    <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
+                                    <tr className="Postform2" style={{ backgroundColor: "#FFFDD0" }}>
                                         <td>TOTAL</td>
                                         <td></td>
-                                        <td>{countArray(count_unit)}</td>
+                                        <td></td>
+                                        <td className="Postform2">{countArray(count_unit)}</td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -168,24 +161,27 @@ function Table() {
                                         <td></td>
                                         <td></td>
                                         <td></td>
+                                        <td className="Postform2">Rs.<br />{sumArray(arr_rate)}</td>
+                                        <td className="Postform2">Rs.<br />{sumArray(arr_nbp)}</td>
+                                        <td className="Postform2">Rs.<br />{sumArray(arr_gst)}</td>
+                                        <td className="Postform2">Rs.<br />{sumArray(arr_nbp) + sumArray(arr_gst)}</td>
+                                        <td className="Postform2">Rs.<br />{sumArray(arr_rwgst)}</td>
+                                        <td className="Postform2">Rs.<br />{sumArray(arr_rwgst) - sumArray(arr_rwogst)}</td>
+                                        <td className="Postform2">Rs.<br />{sumArray(arr_rwogst)}</td>
                                         <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>Rs.<br />{sumArray(arr_rate)}</td>
-                                        <td>Rs.<br />{sumArray(arr_nbp)}</td>
-                                        <td>Rs.<br />{sumArray(arr_gst)}</td>
-                                        <td>Rs.<br />{sumArray(arr_nbp) + sumArray(arr_gst)}</td>
-                                        <td>Rs.<br />{sumArray(arr_rwgst)}</td>
-                                        <td>Rs.<br />{sumArray(arr_rwgst) - sumArray(arr_rwogst)}</td>
-                                        <td>Rs.<br />{sumArray(arr_rwogst)}</td>
-                                        <td></td>
-                                        <td>Rs.<br />{sumArray(arr_balance)}</td>
+                                        <td className="Postform2">Rs.<br />{sumArray(arr_balance)}</td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
                     </PDFExport>
                 </div>
+                
+                <br />
+                <CSVLink data={result} filename={fileName2()} className="btn btn-success mb-3" style={{ color: "#000" }}>
+                            Export {tower} Tower Data
+                        </CSVLink>
+                        <br />
                 <button
                     className='applicant' style={{ backgroundColor: "#3AB4F2" }}
                     onClick={() => {
