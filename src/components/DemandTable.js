@@ -232,7 +232,7 @@ function DemandTable() {
                                     <h6><b>Flat No. </b>{unit_no}</h6>
                                     <h6><b>Email: </b>aiginroyalpark@gmail.com</h6>
                                     <h6><b>Web: </b>https://aiginroyalpark.com/</h6>
-                                    <h6><b>State: </b>Uttar Pradesh</h6>
+                                    <h6><b>State: </b>Uttar Pradesh </h6>
                                     <h6><b>State Code: </b>09</h6>
                                     <h6><b><u>Net Basic Price: </u></b>{res.nbp}</h6>
                                     <h6><b><u>Gst: </u></b>{res.gst}</h6>
