@@ -99,17 +99,17 @@ function DemandTable() {
     const getData = () => {
 
         if (unit_no != null) {
-          return Api.get('/main/' + "'" + (tower) + "'/" + "'" + (unit_no) + "'").then(result => {
-            const res = result.data;
-            return setresultData(res);
-          })
+            return Api.get('/main/' + "'" + (tower) + "'/" + "'" + (unit_no) + "'").then(result => {
+                const res = result.data;
+                return setresultData(res);
+            })
         } else {
-          return Api.get('/main/').then(result => {
-            const res = result.data;
-            return setresultData(res);
-          })
+            return Api.get('/main/').then(result => {
+                const res = result.data;
+                return setresultData(res);
+            })
         }
-      }
+    }
 
     useEffect(() => {
         getDataDemand()
@@ -185,172 +185,170 @@ function DemandTable() {
     //         (imgProperties.height * pdfWidth) / imgProperties.width;
 
     //     pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
-        if (unit_no != null) {
-            var __filename = ((unit_no) + '-demand report.pdf');
-        } else {
-            var __filename = ('Demand report.pdf');
-        }
+    if (unit_no != null) {
+        var __filename = ((unit_no) + '-demand report.pdf');
+    } else {
+        var __filename = ('Demand report.pdf');
+    }
     // };
 
     if (gst_choice === 'Excld GST' && interest === 'with interest') {
         return (
 
             <React.Fragment>
-                
-                <div className='Demand'>
-                <PDFExport pageTemplate={PageTemplate} fileName={__filename}
-            paperSize="A1"
-            ref={printRef}>
-            <br />
-            <br />
-            <br />
-            <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                    <Grid container spacing={3} className='Postform'>
-                        <Grid item xs={12}>
-                            <h6 className="Postform"><b><u><center>Demand Letter</center></u></b></h6>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <ApplicantDetails value={unit_no} value2={tower} />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <div className="Postform">
-                            {currentTableData.map((res) =>
 
+                <div className='Demand'>
+                    <PDFExport pageTemplate={PageTemplate} fileName={__filename}
+                        paperSize="A1"
+                        ref={printRef}>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <Grid container spacing={3} className='Postform'>
+                            <Grid item xs={12}>
+                                <h6 className="Postform"><b><u><center>Demand Letter</center></u></b></h6>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <ApplicantDetails value={unit_no} value2={tower} />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
                                 <div className="Postform">
-                                    <h6 ><b>Dated: </b>{date}</h6>
-                                    <br></br>
-                                    <h6><b>Project Name - AIGIN ROYAL PARK</b></h6>
-                                    <h6><b>Flat No. </b>{unit_no}</h6>
-                                    <h6><b>Email: </b>aiginroyalpark@gmail.com</h6>
-                                    <h6><b>Web: </b>https://aiginroyalpark.com/</h6>
-                                    <h6><b>State: </b>Uttar Pradesh </h6>
-                                    <h6><b>State Code: </b>09</h6>
-                                    <h6><b><u>Net Basic Price: </u></b>{res.nbp}</h6>
-                                    <h6><b><u>Gst: </u></b>{res.gst}</h6>
-                                    <h6><b><u>Total Basic Price: </u></b>{res.tbc}</h6>
+                                    {currentTableData.map((res) =>
+
+                                        <div className="Postform">
+                                            <h6 className="Postform"><b>Dated: </b>{date}</h6>
+                                            <br></br>
+                                            <h6 className="Postform"><b>Project Name - AIGIN ROYAL PARK</b><br />
+                                                <b>Flat No. </b>{unit_no}<br />
+                                                <b>Email: </b>aiginroyalpark@gmail.com<br />
+                                                <b>Web: </b>https://aiginroyalpark.com/<br />
+                                                <b>State: </b>Uttar Pradesh<br />
+                                                <b>State Code: </b>09<br />
+                                                <b><u>Net Basic Price: </u></b>{res.nbp}<br />
+                                                <b><u>Gst: </u></b>{res.gst}<br />
+                                                <b><u>Total Basic Price: </u></b>{res.tbc}</h6>
+                                        </div>
+                                    )}
                                 </div>
-                                )}
-                            </div>
-                        </Grid>
-                        <StatementSubject value={unit_no} value2={tower} value3='Demand' />
-                        <Grid item xs={12}>
-                            <div >
-                                <table className="table-bordered text-black">
-                                    <thead>
-                                        <tr className="Postform" style={{ backgroundColor: "#0078AA" }}>
-                                            <th className="Postform">Perticulars</th>
-                                            <th className="Postform">Percentage</th>
-                                            <th className="Postform">Due Date</th>
-                                            <th className="Postform">Net BSP</th>
-                                            <th className="Postform">CGST</th>
-                                            <th className="Postform">SGST</th>
-                                            <th className="Postform">GST</th>
-                                            <th className="Postform">Due Amount</th>
-                                            <th className="Postform">Received Amount</th>
-                                            <th className="Postform">Receivable Amount</th>
-                                            <th className="Postform">Interest Amount</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="table">
-                                        {currentTableDataDemand2.map((res) =>
-                                            {
+                            </Grid>
+                            <StatementSubject value={unit_no} value2={tower} value3='Demand' />
+                            <Grid item xs={12}>
+                                <div >
+                                    <table className="table-bordered text-black">
+                                        <thead>
+                                            <tr className="Postform" style={{ backgroundColor: "#0078AA" }}>
+                                                <th >Perticulars</th>
+                                                <th >Percentage</th>
+                                                <th >Due Date</th>
+                                                <th >Net BSP</th>
+                                                <th >CGST</th>
+                                                <th >SGST</th>
+                                                <th >GST</th>
+                                                <th >Due Amount</th>
+                                                <th >Received Amount</th>
+                                                <th >Receivable Amount</th>
+                                                <th >Interest Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="table">
+                                            {currentTableDataDemand2.map((res) => {
                                                 return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform">{res.description}</td>
-                                                <td className="Postform">{res.percentage}%</td>
-                                                <td className="Postform">{res.due_date}</td>
-                                                <td className="Postform">{res.net_bsp}</td>
-                                                <td className="Postform">{res.cgst}</td>
-                                                <td className="Postform">{res.sgst}</td>
-                                                <td className="Postform">{res.gst}</td>
-                                                <td className="Postform">{res.net_due}</td>
-                                                <td className="Postform">{res.recieved}</td>
-                                                <td className="Postform">{res.pending_amount}</td>
-                                                <td className="Postform"></td>
-                                            </tr>)}
-                                        )}
-                                        {currentTableDataDemand.map((res) =>
-                                            {
-                                                return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform">{res.description}</td>
-                                                <td className="Postform">{res.percentage}%</td>
-                                                <td className="Postform">{res.due_date}</td>
-                                                <td className="Postform">{res.net_bsp}</td>
-                                                <td className="Postform">{res.cgst}</td>
-                                                <td className="Postform">{res.sgst}</td>
-                                                <td className="Postform">{res.gst}</td>
-                                                <td className="Postform">{res.net_due}</td>
-                                                <td className="Postform">{res.recieved}</td>
-                                                <td className="Postform">{res.net_due - res.recieved}</td>
-                                                <td className="Postform"></td>
-                                            </tr>)}
-                                        )}
-                                        {currentTableDataDemand3.map((res) => {
-                                            if (sumArray(interest_val) > 0) {
-                                                pen.set(res.net_due - res.recieved)
-                                                return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                    <td className="Postform">{res.description}</td>
-                                                <td className="Postform"></td>
-                                                    <td className="Postform"> </td>
-                                                    <td className="Postform"><b>Rs. {res.net_bsp}</b></td>
-                                                    <td className="Postform"><b>Rs. {res.cgst}</b></td>
-                                                    <td className="Postform"><b>Rs. {res.sgst}</b></td>
-                                                    <td className="Postform"><b>Rs. {res.gst}</b></td>
-                                                    <td className="Postform"><b>Rs. {res.net_due}</b></td>
-                                                    <td className="Postform"><b>Rs. {res.recieved}</b></td>
-                                                    <td className="Postform"><b>Rs. {res.pending_amount}</b></td>
-                                                    <td className="Postform"><b>Rs. {sumArray(interest_val)}</b></td>
+                                                    <td >{res.description}</td>
+                                                    <td >{res.percentage}%</td>
+                                                    <td >{res.due_date}</td>
+                                                    <td >{res.net_bsp}</td>
+                                                    <td >{res.cgst}</td>
+                                                    <td >{res.sgst}</td>
+                                                    <td >{res.gst}</td>
+                                                    <td >{res.net_due}</td>
+                                                    <td >{res.recieved}</td>
+                                                    <td >{res.pending_amount}</td>
+                                                    <td ></td>
                                                 </tr>)
                                             }
-                                            else {
-                                                pen.set(res.net_due - res.recieved)
+                                            )}
+                                            {currentTableDataDemand.map((res) => {
                                                 return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                    <td className="Postform">{res.description}</td>
-                                                <td className="Postform"></td>
-                                                    <td className="Postform"> </td>
-                                                    <td className="Postform"><b>Rs. {res.net_bsp}</b></td>
-                                                    <td className="Postform"><b>Rs. {res.cgst}</b></td>
-                                                    <td className="Postform"><b>Rs. {res.sgst}</b></td>
-                                                    <td className="Postform"><b>Rs. {res.gst}</b></td>
-                                                    <td className="Postform"><b>Rs. {res.net_due}</b></td>
-                                                    <td className="Postform"><b>Rs. {res.recieved}</b></td>
-                                                    <td className="Postform"><b>Rs. {res.net_due - res.recieved}</b></td>
-                                                    <td className="Postform"><b>Rs. 0</b></td>
+                                                    <td >{res.description}</td>
+                                                    <td >{res.percentage}%</td>
+                                                    <td >{res.due_date}</td>
+                                                    <td >{res.net_bsp}</td>
+                                                    <td >{res.cgst}</td>
+                                                    <td >{res.sgst}</td>
+                                                    <td >{res.gst}</td>
+                                                    <td >{res.net_due}</td>
+                                                    <td >{res.recieved}</td>
+                                                    <td >{res.net_due - res.recieved}</td>
+                                                    <td ></td>
                                                 </tr>)
                                             }
-                                        }
-                                        )}
-                                    </tbody>
-                                </table>
-                                
-                                <Pagination
-                                    className="pagination-bar"
-                                    currentPage={currentPage}
-                                    totalCount={resultDemand.length}
-                                    pageSize={PageSize}
-                                    onPageChange={page => setCurrentPage(page)}
-                                />
-                            </div>
+                                            )}
+                                            {currentTableDataDemand3.map((res) => {
+                                                if (sumArray(interest_val) > 0) {
+                                                    pen.set(res.net_due - res.recieved)
+                                                    return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
+                                                        <td >{res.description}</td>
+                                                        <td ></td>
+                                                        <td > </td>
+                                                        <td ><b>Rs. {res.net_bsp}</b></td>
+                                                        <td ><b>Rs. {res.cgst}</b></td>
+                                                        <td ><b>Rs. {res.sgst}</b></td>
+                                                        <td ><b>Rs. {res.gst}</b></td>
+                                                        <td ><b>Rs. {res.net_due}</b></td>
+                                                        <td ><b>Rs. {res.recieved}</b></td>
+                                                        <td ><b>Rs. {res.pending_amount}</b></td>
+                                                        <td ><b>Rs. {sumArray(interest_val)}</b></td>
+                                                    </tr>)
+                                                }
+                                                else {
+                                                    pen.set(res.net_due - res.recieved)
+                                                    return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
+                                                        <td >{res.description}</td>
+                                                        <td ></td>
+                                                        <td > </td>
+                                                        <td ><b>Rs. {res.net_bsp}</b></td>
+                                                        <td ><b>Rs. {res.cgst}</b></td>
+                                                        <td ><b>Rs. {res.sgst}</b></td>
+                                                        <td ><b>Rs. {res.gst}</b></td>
+                                                        <td ><b>Rs. {res.net_due}</b></td>
+                                                        <td ><b>Rs. {res.recieved}</b></td>
+                                                        <td ><b>Rs. {res.net_due - res.recieved}</b></td>
+                                                        <td ><b>Rs. 0</b></td>
+                                                    </tr>)
+                                                }
+                                            }
+                                            )}
+                                        </tbody>
+                                    </table>
+
+                                    <Pagination
+                                        className="pagination-bar"
+                                        currentPage={currentPage}
+                                        totalCount={resultDemand.length}
+                                        pageSize={PageSize}
+                                        onPageChange={page => setCurrentPage(page)}
+                                    />
+                                </div>
+                            </Grid>
+                            <DemandStatement value={id} value2='Demand' value3={pen[0]} value4={unit_no} value5={tower} />
                         </Grid>
-                        <DemandStatement value={id} value2='Demand' value3={pen[0]} value4={unit_no} value5={tower} />
-                    </Grid>
                     </PDFExport>
                     <NavBtn
-            onClick={() => {
-              if (printRef.current) {
-                printRef.current.save();
-              }
-            }}
-          ><NavBtnLink to='/'><b><u>Export PDF</u></b></NavBtnLink>
-          </NavBtn>
+                        onClick={() => {
+                            if (printRef.current) {
+                                printRef.current.save();
+                            }
+                        }}
+                    ><NavBtnLink to='/'><b><u>Export PDF</u></b></NavBtnLink>
+                    </NavBtn>
                 </div>
             </React.Fragment>
         );
@@ -358,138 +356,139 @@ function DemandTable() {
         return (
 
             <React.Fragment>
-                
-                <div className='Demand'>
-                <PDFExport pageTemplate={PageTemplate} fileName={__filename}
-            paperSize="A1"
-            ref={printRef}>
-            <br />
-            <br />
-            <br />
-            <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                    <Grid container spacing={3} className='Postform'>
-                        <Grid item xs={12}>
-                            <h6 className="Postform"><b><u><center>Demand Letter</center></u></b></h6>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <ApplicantDetails value={unit_no} value2={tower} />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <div className="Postform">
-                                {currentTableData.map((res) =>
 
+                <div className='Demand'>
+                    <PDFExport pageTemplate={PageTemplate} fileName={__filename}
+                        paperSize="A1"
+                        ref={printRef}>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <Grid container spacing={3} className='Postform'>
+                            <Grid item xs={12}>
+                                <h6 className="Postform"><b><u><center>Demand Letter</center></u></b></h6>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <ApplicantDetails value={unit_no} value2={tower} />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
                                 <div className="Postform">
-                                    <h6 ><b>Dated: </b>{date}</h6>
-                                    <br></br>
-                                    <h6><b>Project Name - AIGIN ROYAL PARK</b></h6>
-                                    <h6><b>Flat No. </b>{unit_no}</h6>
-                                    <h6><b>Email: </b>aiginroyalpark@gmail.com</h6>
-                                    <h6><b>Web: </b>https://aiginroyalpark.com/</h6>
-                                    <h6><b>State: </b>Uttar Pradesh</h6>
-                                    <h6><b>State Code: </b>09</h6>
-                                    <h6><b><u>Net Basic Price: </u></b>{res.nbp}</h6>
-                                    <h6><b><u>Gst: </u></b>{res.gst}</h6>
-                                    <h6><b><u>Total Basic Price: </u></b>{res.tbc}</h6>
+                                    {currentTableData.map((res) =>
+
+                                        <div className="Postform">
+                                            <h6 className="Postform"><b>Dated: </b>{date}</h6>
+                                            <br></br>
+                                            <h6 className="Postform"><b>Project Name - AIGIN ROYAL PARK</b><br />
+                                                <b>Flat No. </b>{unit_no}<br />
+                                                <b>Email: </b>aiginroyalpark@gmail.com<br />
+                                                <b>Web: </b>https://aiginroyalpark.com/<br />
+                                                <b>State: </b>Uttar Pradesh<br />
+                                                <b>State Code: </b>09<br />
+                                                <b><u>Net Basic Price: </u></b>{res.nbp}<br />
+                                                <b><u>Gst: </u></b>{res.gst}<br />
+                                                <b><u>Total Basic Price: </u></b>{res.tbc}</h6>
+                                        </div>
+                                    )}
                                 </div>
-                                )}
-                            </div>
-                        </Grid>
-                        <StatementSubject value={unit_no} value2={tower} value3='Demand' />
-                        <Grid item xs={12}>
-                            <div >
-                                <table className="table-bordered text-black">
-                                    <thead>
-                                        <tr className="Postform" style={{ backgroundColor: "#0078AA" }}>
-                                        <th className="Postform">Perticulars</th>
-                                            <th className="Postform">Percentage</th>
-                                            <th className="Postform">Due Date</th>
-                                            <th className="Postform">Net BSP</th>
-                                            <th className="Postform">CGST</th>
-                                            <th className="Postform">SGST</th>
-                                            <th className="Postform">GST</th>
-                                            <th className="Postform">Due Amount</th>
-                                            <th className="Postform">Received Amount</th>
-                                            <th className="Postform">Receivable Amount</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="table">
-                                        {currentTableDataDemand2.map((res) =>{
+                            </Grid>
+                            <StatementSubject value={unit_no} value2={tower} value3='Demand' />
+                            <Grid item xs={12}>
+                                <div >
+                                    <table className="table-bordered text-black">
+                                        <thead>
+                                            <tr className="Postform" style={{ backgroundColor: "#0078AA" }}>
+                                                <th >Perticulars</th>
+                                                <th >Percentage</th>
+                                                <th >Due Date</th>
+                                                <th >Net BSP</th>
+                                                <th >CGST</th>
+                                                <th >SGST</th>
+                                                <th >GST</th>
+                                                <th >Due Amount</th>
+                                                <th >Received Amount</th>
+                                                <th >Receivable Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="table">
+                                            {currentTableDataDemand2.map((res) => {
                                                 return (<tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform">{res.description}</td>
-                                                <td className="Postform">{res.percentage}%</td>
-                                                <td className="Postform">{res.due_date}</td>
-                                                <td className="Postform">{res.net_bsp}</td>
-                                                <td className="Postform">{res.cgst}</td>
-                                                <td className="Postform">{res.sgst}</td>
-                                                <td className="Postform">{res.gst}</td>
-                                                <td className="Postform">{res.net_due}</td>
-                                                <td className="Postform">{res.recieved}</td>
-                                                <td className="Postform">{res.pending_amount}</td>
-                                            </tr>)}
-                                        )}
-                                        {currentTableDataDemand.map((res) =>{
+                                                    <td >{res.description}</td>
+                                                    <td >{res.percentage}%</td>
+                                                    <td >{res.due_date}</td>
+                                                    <td >{res.net_bsp}</td>
+                                                    <td >{res.cgst}</td>
+                                                    <td >{res.sgst}</td>
+                                                    <td >{res.gst}</td>
+                                                    <td >{res.net_due}</td>
+                                                    <td >{res.recieved}</td>
+                                                    <td >{res.pending_amount}</td>
+                                                </tr>)
+                                            }
+                                            )}
+                                            {currentTableDataDemand.map((res) => {
                                                 return (
-                                            <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform">{res.description}</td>
-                                                <td className="Postform">{res.percentage}%</td>
-                                                <td className="Postform">{res.due_date}</td>
-                                                <td className="Postform">{res.net_bsp}</td>
-                                                <td className="Postform">{res.cgst}</td>
-                                                <td className="Postform">{res.sgst}</td>
-                                                <td className="Postform">{res.gst}</td>
-                                                <td className="Postform">{res.net_due}</td>
-                                                <td className="Postform">{res.recieved}</td>
-                                                <td className="Postform">{res.net_due - res.recieved}</td>
-                                            </tr>)}
-                                        )}
-                                        {currentTableDataDemand3.map((res) =>{
+                                                    <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
+                                                        <td >{res.description}</td>
+                                                        <td >{res.percentage}%</td>
+                                                        <td >{res.due_date}</td>
+                                                        <td >{res.net_bsp}</td>
+                                                        <td >{res.cgst}</td>
+                                                        <td >{res.sgst}</td>
+                                                        <td >{res.gst}</td>
+                                                        <td >{res.net_due}</td>
+                                                        <td >{res.recieved}</td>
+                                                        <td >{res.net_due - res.recieved}</td>
+                                                    </tr>)
+                                            }
+                                            )}
+                                            {currentTableDataDemand3.map((res) => {
                                                 pen.push(res.net_due - res.recieved)
                                                 return (
-                                            <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform">{res.description}</td>
-                                                <td className="Postform"></td>
-                                                <td className="Postform"> </td>
-                                                <td className="Postform"><b>Rs. {res.net_bsp}</b></td>
-                                                <td className="Postform"><b>Rs. {res.cgst}</b></td>
-                                                <td className="Postform"><b>Rs. {res.sgst}</b></td>
-                                                <td className="Postform"><b>Rs. {res.gst}</b></td>
-                                                <td className="Postform"><b>Rs. {res.net_due}</b></td>
-                                                <td className="Postform"><b>Rs. {res.recieved}</b></td>
-                                                <td className="Postform"><b>Rs. {res.net_due - res.recieved}</b></td>
-                                            </tr>
-                                        )}
-                                        )}
-                                    </tbody>
-                                </table>
-                                <Pagination
-                                    className="pagination-bar"
-                                    currentPage={currentPage}
-                                    totalCount={resultDemand.length}
-                                    pageSize={PageSize}
-                                    onPageChange={page => setCurrentPage(page)}
-                                />
-                            </div>
+                                                    <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
+                                                        <td >{res.description}</td>
+                                                        <td ></td>
+                                                        <td > </td>
+                                                        <td ><b>Rs. {res.net_bsp}</b></td>
+                                                        <td ><b>Rs. {res.cgst}</b></td>
+                                                        <td ><b>Rs. {res.sgst}</b></td>
+                                                        <td ><b>Rs. {res.gst}</b></td>
+                                                        <td ><b>Rs. {res.net_due}</b></td>
+                                                        <td ><b>Rs. {res.recieved}</b></td>
+                                                        <td ><b>Rs. {res.net_due - res.recieved}</b></td>
+                                                    </tr>
+                                                )
+                                            }
+                                            )}
+                                        </tbody>
+                                    </table>
+                                    <Pagination
+                                        className="pagination-bar"
+                                        currentPage={currentPage}
+                                        totalCount={resultDemand.length}
+                                        pageSize={PageSize}
+                                        onPageChange={page => setCurrentPage(page)}
+                                    />
+                                </div>
+                            </Grid>
+                            <DemandStatement value={id} value2='Demand' value3={pen[0]} value4={unit_no} value5={tower} />
                         </Grid>
-                        <DemandStatement value={id} value2='Demand' value3={pen[0]} value4={unit_no} value5={tower} />
-                    </Grid>
                     </PDFExport>
                     <NavBtn
-            onClick={() => {
-              if (printRef.current) {
-                printRef.current.save();
-              }
-            }}
-          ><NavBtnLink to='/'><b><u>Export PDF</u></b></NavBtnLink>
-          </NavBtn>
+                        onClick={() => {
+                            if (printRef.current) {
+                                printRef.current.save();
+                            }
+                        }}
+                    ><NavBtnLink to='/'><b><u>Export PDF</u></b></NavBtnLink>
+                    </NavBtn>
                 </div>
             </React.Fragment>
         );
@@ -497,141 +496,140 @@ function DemandTable() {
         return (
 
             <React.Fragment>
-                
-                <div className='Demand'>
-                <PDFExport pageTemplate={PageTemplate} fileName={__filename}
-            paperSize="A1"
-            ref={printRef}>
-            <br />
-            <br />
-            <br />
-            <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                    <Grid container spacing={3} className='Postform'>
-                        <Grid item xs={12}>
-                            <h6 className="Postform"><b><u><center>Demand Letter</center></u></b></h6>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <ApplicantDetails value={unit_no} value2={tower} />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <div className="Postform">
-                                {currentTableData.map((res) =>
 
+                <div className='Demand'>
+                    <PDFExport pageTemplate={PageTemplate} fileName={__filename}
+                        paperSize="A1"
+                        ref={printRef}>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <Grid container spacing={3} className='Postform'>
+                            <Grid item xs={12}>
+                                <h6 className="Postform"><b><u><center>Demand Letter</center></u></b></h6>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <ApplicantDetails value={unit_no} value2={tower} />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
                                 <div className="Postform">
-                                    <h6 ><b>Dated: </b>{date}</h6>
-                                    <br></br>
-                                    <h6><b>Project Name - AIGIN ROYAL PARK</b></h6>
-                                    <h6><b>Flat No. </b>{unit_no}</h6>
-                                    <h6><b>Email: </b>aiginroyalpark@gmail.com</h6>
-                                    <h6><b>Web: </b>https://aiginroyalpark.com/</h6>
-                                    <h6><b>State: </b>Uttar Pradesh</h6>
-                                    <h6><b>State Code: </b>09</h6>
-                                    <h6><b><u>Net Basic Price: </u></b>{res.nbp}</h6>
-                                    <h6><b><u>Gst: </u></b>{res.gst}</h6>
-                                    <h6><b><u>Total Basic Price: </u></b>{res.tbc}</h6>
+                                    {currentTableData.map((res) =>
+
+                                        <div className="Postform">
+                                            <h6 className="Postform"><b>Dated: </b>{date}</h6>
+                                            <br></br>
+                                            <h6 className="Postform"><b>Project Name - AIGIN ROYAL PARK</b><br />
+                                                <b>Flat No. </b>{unit_no}<br />
+                                                <b>Email: </b>aiginroyalpark@gmail.com<br />
+                                                <b>Web: </b>https://aiginroyalpark.com/<br />
+                                                <b>State: </b>Uttar Pradesh<br />
+                                                <b>State Code: </b>09<br />
+                                                <b><u>Net Basic Price: </u></b>{res.nbp}<br />
+                                                <b><u>Gst: </u></b>{res.gst}<br />
+                                                <b><u>Total Basic Price: </u></b>{res.tbc}</h6>
+                                        </div>
+                                    )}
                                 </div>
-                                )}
-                            </div>
+                            </Grid>
+                            <StatementSubject value={unit_no} value2={tower} value3='Demand' />
+                            <Grid item xs={12}>
+                                <div >
+                                    <table className="table-bordered text-black">
+                                        <thead>
+                                            <tr className="Postform" style={{ backgroundColor: "#0078AA" }}>
+                                                <th >Perticulars</th>
+                                                <th >Percentage</th>
+                                                <th >Due Date</th>
+                                                <th >Net BSP</th>
+                                                <th >CGST</th>
+                                                <th >SGST</th>
+                                                <th >GST</th>
+                                                <th >Due Amount</th>
+                                                <th >Received Amount</th>
+                                                <th >Receivable Amount</th>
+                                                <th >Interest Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="table">
+                                            {currentTableDataDemand2.map((res) =>
+                                                <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
+                                                    <td >{res.description}</td>
+                                                    <td >{res.percentage}%</td>
+                                                    <td >{res.due_date}</td>
+                                                    <td >{res.net_bsp}</td>
+                                                    <td >{res.cgst}</td>
+                                                    <td >{res.sgst}</td>
+                                                    <td >{res.gst}</td>
+                                                    <td >{res.net_due}</td>
+                                                    <td >{res.recieved}</td>
+                                                    <td >{res.pending_amount}</td>
+                                                    <td ></td>
+                                                </tr>
+                                            )}
+                                            {currentTableDataDemand.map((res) =>
+                                                <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
+                                                    <td >{res.description}</td>
+                                                    <td >{res.percentage}%</td>
+                                                    <td >{res.due_date}</td>
+                                                    <td >{res.net_bsp}</td>
+                                                    <td >{res.cgst}</td>
+                                                    <td >{res.sgst}</td>
+                                                    <td >{res.gst}</td>
+                                                    <td >{res.net_due}</td>
+                                                    <td >{res.recieved}</td>
+                                                    <td >{res.net_due - res.recieved}</td>
+                                                    <td ></td>
+                                                </tr>
+                                            )}
+                                            {currentTableDataDemand3.map((res) => {
+                                                pen.push(res.net_due - res.recieved)
+                                                return (
+                                                    <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
+                                                        <td >{res.description}</td>
+                                                        <td ></td>
+                                                        <td > </td>
+                                                        <td ><b>Rs. {res.net_bsp}</b></td>
+                                                        <td ><b>Rs. {res.cgst}</b></td>
+                                                        <td ><b>Rs. {res.sgst}</b></td>
+                                                        <td ><b>Rs. {res.gst}</b></td>
+                                                        <td ><b>Rs. {res.net_due}</b></td>
+                                                        <td ><b>Rs. {res.recieved}</b></td>
+                                                        <td ><b>Rs. {res.net_due - res.recieved}</b></td>
+                                                        <td ><b>Rs. {sumArray(interest_val)}</b></td>
+                                                    </tr>
+                                                )
+                                            }
+                                            )}
+                                        </tbody>
+                                    </table>
+                                    <Pagination
+                                        className="pagination-bar"
+                                        currentPage={currentPage}
+                                        totalCount={resultDemand.length}
+                                        pageSize={PageSize}
+                                        onPageChange={page => setCurrentPage(page)}
+                                    />
+                                </div>
+                            </Grid>
+                            <DemandStatement value={id} value2='Demand' value3={pen[0]} value4={unit_no} value5={tower} />
                         </Grid>
-                        <StatementSubject value={unit_no} value2={tower} value3='Demand' />
-                        <Grid item xs={12}>
-                            <div >
-                                <table className="table-bordered text-black">
-                                    <thead>
-                                        <tr className="Postform" style={{ backgroundColor: "#0078AA" }}>
-                                        <th className="Postform">Perticulars</th>
-                                            <th className="Postform">Percentage</th>
-                                            <th className="Postform">Due Date</th>
-                                            <th className="Postform">Net BSP</th>
-                                            <th className="Postform">CGST</th>
-                                            <th className="Postform">SGST</th>
-                                            <th className="Postform">GST</th>
-                                            <th className="Postform">Due Amount</th>
-                                            <th className="Postform">Received Amount</th>
-                                            <th className="Postform">Receivable Amount</th>
-                                            <th className="Postform">Interest Amount</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="table">
-                                        {currentTableDataDemand2.map((res) =>
-                                            <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform">{res.description}</td>
-                                                <td className="Postform">{res.percentage}%</td>
-                                                <td className="Postform">{res.due_date}</td>
-                                                <td className="Postform">{res.net_bsp}</td>
-                                                <td className="Postform">{res.cgst}</td>
-                                                <td className="Postform">{res.sgst}</td>
-                                                <td className="Postform">{res.gst}</td>
-                                                <td className="Postform">{res.net_due}</td>
-                                                <td className="Postform">{res.recieved}</td>
-                                                <td className="Postform">{res.pending_amount}</td>
-                                                <td className="Postform"></td>
-                                            </tr>
-                                        )}
-                                        {currentTableDataDemand.map((res) =>
-                                            <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform">{res.description}</td>
-                                                <td className="Postform">{res.percentage}%</td>
-                                                <td className="Postform">{res.due_date}</td>
-                                                <td className="Postform">{res.net_bsp}</td>
-                                                <td className="Postform">{res.cgst}</td>
-                                                <td className="Postform">{res.sgst}</td>
-                                                <td className="Postform">{res.gst}</td>
-                                                <td className="Postform">{res.net_due}</td>
-                                                <td className="Postform">{res.recieved}</td>
-                                                <td className="Postform">{res.net_due - res.recieved}</td>
-                                                <td className="Postform"></td>
-                                            </tr>
-                                        )}
-                                        {currentTableDataDemand3.map((res) =>{
-                                        pen.push(res.net_due - res.recieved)
-                                        return (
-                                            <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform">{res.description}</td>
-                                                <td className="Postform"></td>
-                                                <td className="Postform"> </td>
-                                                <td className="Postform"><b>Rs. {res.net_bsp}</b></td>
-                                                <td className="Postform"><b>Rs. {res.cgst}</b></td>
-                                                <td className="Postform"><b>Rs. {res.sgst}</b></td>
-                                                <td className="Postform"><b>Rs. {res.gst}</b></td>
-                                                <td className="Postform"><b>Rs. {res.net_due}</b></td>
-                                                <td className="Postform"><b>Rs. {res.recieved}</b></td>
-                                                <td className="Postform"><b>Rs. {res.net_due - res.recieved}</b></td>
-                                                <td className="Postform"><b>Rs. {sumArray(interest_val)}</b></td>
-                                            </tr>
-                                        )}
-                                        )}
-                                    </tbody>
-                                </table>
-                                <Pagination
-                                    className="pagination-bar"
-                                    currentPage={currentPage}
-                                    totalCount={resultDemand.length}
-                                    pageSize={PageSize}
-                                    onPageChange={page => setCurrentPage(page)}
-                                />
-                            </div>
-                        </Grid>
-                        <DemandStatement value={id} value2='Demand' value3={pen[0]} value4={unit_no} value5={tower} />
-                    </Grid>
                     </PDFExport>
                     <NavBtn
-            onClick={() => {
-              if (printRef.current) {
-                printRef.current.save();
-              }
-            }}
-          ><NavBtnLink to='/'><b><u>Export PDF</u></b></NavBtnLink>
-          </NavBtn>
+                        onClick={() => {
+                            if (printRef.current) {
+                                printRef.current.save();
+                            }
+                        }}
+                    ><NavBtnLink to='/'><b><u>Export PDF</u></b></NavBtnLink>
+                    </NavBtn>
                 </div>
             </React.Fragment>
         );
@@ -639,134 +637,131 @@ function DemandTable() {
         return (
 
             <React.Fragment>
-                
-                <div className='Demand'>
-                <PDFExport pageTemplate={PageTemplate} fileName={__filename}
-            paperSize="A1"
-            ref={printRef}>
-            <br />
-            <br />
-            <br />
-            <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                    <Grid container spacing={3} className='Postform'>
-                        <Grid item xs={12}>
-                            <h6 className="Postform"><b><u><center>Demand Letter</center></u></b></h6>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <ApplicantDetails value={unit_no} value2={tower} />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <div className="Postform">
-                                {currentTableData.map((res) =>
 
+                <div className='Demand'>
+                    <PDFExport pageTemplate={PageTemplate} fileName={__filename}
+                        paperSize="A1"
+                        ref={printRef}>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <Grid container spacing={3} className='Postform'>
+                            <Grid item xs={12}>
+                                <h6 className="Postform"><b><u><center>Demand Letter</center></u></b></h6>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <ApplicantDetails value={unit_no} value2={tower} />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
                                 <div className="Postform">
-                                    <h6 ><b>Dated: </b>{date}</h6>
-                                    <br></br>
-                                    <h6><b>Project Name - AIGIN ROYAL PARK</b></h6>
-                                    <h6><b>Flat No. </b>{unit_no}</h6>
-                                    <h6><b>Email: </b>aiginroyalpark@gmail.com</h6>
-                                    <h6><b>Web: </b>https://aiginroyalpark.com/</h6>
-                                    <h6><b>State: </b>Uttar Pradesh</h6>
-                                    <h6><b>State Code: </b>09</h6>
-                                    <h6><b><u>Net Basic Price: </u></b>{res.nbp}</h6>
-                                    <h6><b><u>Gst: </u></b>{res.gst}</h6>
-                                    <h6><b><u>Total Basic Price: </u></b>{res.tbc}</h6>
+                                    {currentTableData.map((res) =>
+
+                                        <div className="Postform">
+                                            <b>Dated: </b>{date}<br />
+                                            <b>Project Name - AIGIN ROYAL PARK</b><br />
+                                                <b>Flat No. </b>{unit_no}<br />
+                                                <b>Email: </b>aiginroyalpark@gmail.com<br />
+                                                <b>Web: </b>https://aiginroyalpark.com/<br />
+                                                <b>State: </b>Uttar Pradesh<br />
+                                                <b>State Code: </b>09<br />
+                                                <b><u>Net Basic Price: </u></b>{res.nbp}<br />
+                                                <b><u>Gst: </u></b>{res.gst}<br />
+                                                <b><u>Total Basic Price: </u></b>{res.tbc}
+                                        </div>
+                                    )}
                                 </div>
-                                )}
-                            </div>
+                            </Grid>
+                            <StatementSubject value={unit_no} value2={tower} value3='Demand' />
+                            <Grid item xs={12}>
+                                <div >
+                                    <table className="table-bordered text-black">
+                                        <thead>
+                                            <tr className="Postform" style={{ backgroundColor: "#0078AA" }}>
+                                                <th >Perticulars</th>
+                                                <th >Percentage</th>
+                                                <th >Due Date</th>
+                                                <th >Net BSP</th>
+                                                <th >CGST</th>
+                                                <th >SGST</th>
+                                                <th >GST</th>
+                                                <th >Due Amount</th>
+                                                <th >Received Amount</th>
+                                                <th >Receivable Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="table">
+                                            {currentTableDataDemand2.map((res) =>
+                                                <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
+                                                    <td >{res.description}</td>
+                                                    <td >{res.percentage}%</td>
+                                                    <td >{res.due_date}</td>
+                                                    <td >{res.net_bsp}</td>
+                                                    <td >{res.cgst}</td>
+                                                    <td >{res.sgst}</td>
+                                                    <td >{res.gst}</td>
+                                                    <td >{res.net_due}</td>
+                                                    <td >{res.recieved}</td>
+                                                    <td >{res.pending_amount}</td>
+                                                </tr>
+                                            )}
+                                            {currentTableDataDemand.map((res) =>
+                                                <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
+                                                    <td >{res.description}</td>
+                                                    <td >{res.percentage}%</td>
+                                                    <td >{res.due_date}</td>
+                                                    <td >{res.net_bsp}</td>
+                                                    <td >{res.cgst}</td>
+                                                    <td >{res.sgst}</td>
+                                                    <td >{res.gst}</td>
+                                                    <td >{res.net_due}</td>
+                                                    <td >{res.recieved}</td>
+                                                    <td >{res.net_due - res.recieved}</td>
+                                                </tr>
+                                            )}
+                                            {currentTableDataDemand3.map((res) =>
+                                                <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
+                                                    <td >{res.description}</td>
+                                                    <td ></td>
+                                                    <td > </td>
+                                                    <td ><b>Rs. {res.net_bsp}</b></td>
+                                                    <td ><b>Rs. {res.cgst}</b></td>
+                                                    <td ><b>Rs. {res.sgst}</b></td>
+                                                    <td ><b>Rs. {res.gst}</b></td>
+                                                    <td ><b>Rs. {res.net_due}</b></td>
+                                                    <td ><b>Rs. {res.recieved}</b></td>
+                                                    <td ><b>Rs. {res.net_due - res.recieved}</b></td>
+                                                </tr>
+                                            )}
+                                        </tbody>
+                                    </table>
+                                    <Pagination
+                                        className="pagination-bar"
+                                        currentPage={currentPage}
+                                        totalCount={resultDemand.length}
+                                        pageSize={PageSize}
+                                        onPageChange={page => setCurrentPage(page)}
+                                    />
+                                </div>
+                            </Grid>
+                            <DemandStatement value={id} value2='Demand' value3={pen[0]} value4={unit_no} value5={tower} />
                         </Grid>
-                        <StatementSubject value={unit_no} value2={tower} value3='Demand' />
-                        <Grid item xs={12}>
-                            <div >
-                                <table className="table-bordered text-black">
-                                    <thead>
-                                        <tr className="Postform" style={{ backgroundColor: "#0078AA" }}>
-                                        <th className="Postform">Perticulars</th>
-                                            <th className="Postform">Percentage</th>
-                                            <th className="Postform">Due Date</th>
-                                            <th className="Postform">Net BSP</th>
-                                            <th className="Postform">CGST</th>
-                                            <th className="Postform">SGST</th>
-                                            <th className="Postform">GST</th>
-                                            <th className="Postform">Due Amount</th>
-                                            <th className="Postform">Received Amount</th>
-                                            <th className="Postform">Receivable Amount</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="table">
-                                        {currentTableDataDemand2.map((res) =>
-                                            <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform">{res.description}</td>
-                                                <td className="Postform">{res.percentage}%</td>
-                                                <td className="Postform">{res.due_date}</td>
-                                                <td className="Postform">{res.net_bsp}</td>
-                                                <td className="Postform">{res.cgst}</td>
-                                                <td className="Postform">{res.sgst}</td>
-                                                <td className="Postform">{res.gst}</td>
-                                                <td className="Postform">{res.net_due}</td>
-                                                <td className="Postform">{res.recieved}</td>
-                                                <td className="Postform">{res.pending_amount}</td>
-                                            </tr>
-                                        )}
-                                        {currentTableDataDemand.map((res) =>
-                                            <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform">{res.description}</td>
-                                                <td className="Postform">{res.percentage}%</td>
-                                                <td className="Postform">{res.due_date}</td>
-                                                <td className="Postform">{res.net_bsp}</td>
-                                                <td className="Postform">{res.cgst}</td>
-                                                <td className="Postform">{res.sgst}</td>
-                                                <td className="Postform">{res.gst}</td>
-                                                <td className="Postform">{res.net_due}</td>
-                                                <td className="Postform">{res.recieved}</td>
-                                                <td className="Postform">{res.net_due - res.recieved}</td>
-                                            </tr>
-                                        )}
-                                        {currentTableDataDemand3.map((res) =>
-                                            <tr className="Postform" style={{ backgroundColor: "#FFFDD0" }}>
-                                                <td className="Postform">{res.description}</td>
-                                                <td className="Postform"></td>
-                                                <td className="Postform"> </td>
-                                                <td className="Postform"><b>Rs. {res.net_bsp}</b></td>
-                                                <td className="Postform"><b>Rs. {res.cgst}</b></td>
-                                                <td className="Postform"><b>Rs. {res.sgst}</b></td>
-                                                <td className="Postform"><b>Rs. {res.gst}</b></td>
-                                                <td className="Postform"><b>Rs. {res.net_due}</b></td>
-                                                <td className="Postform"><b>Rs. {res.recieved}</b></td>
-                                                <td className="Postform"><b>Rs. {res.net_due - res.recieved}</b></td>
-                                            </tr>
-                                        )}
-                                    </tbody>
-                                </table>
-                                <Pagination
-                                    className="pagination-bar"
-                                    currentPage={currentPage}
-                                    totalCount={resultDemand.length}
-                                    pageSize={PageSize}
-                                    onPageChange={page => setCurrentPage(page)}
-                                />
-                            </div>
-                        </Grid>
-                        <DemandStatement value={id} value2='Demand' value3={pen[0]} value4={unit_no} value5={tower} />
-                    </Grid>
                     </PDFExport>
                     <NavBtn
-            onClick={() => {
-              if (printRef.current) {
-                printRef.current.save();
-              }
-            }}
-          ><NavBtnLink to='/'><b><u>Export PDF</u></b></NavBtnLink>
-          </NavBtn>
+                        onClick={() => {
+                            if (printRef.current) {
+                                printRef.current.save();
+                            }
+                        }}
+                    ><NavBtnLink to='/'><b><u>Export PDF</u></b></NavBtnLink>
+                    </NavBtn>
                 </div>
             </React.Fragment>
         );
